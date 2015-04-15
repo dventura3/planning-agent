@@ -1,0 +1,6 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+
+
+<plantsCollection> a vocab:PlantsCollection.

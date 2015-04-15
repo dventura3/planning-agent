@@ -25,8 +25,17 @@ app.use(
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.listen(port, host, function() {
-  console.log("Server configured");
-  console.log("Server listening to %s:%d", host, port);
+  //configuration
+  try {
+    fs.readFile('lib/fakeBoards.json', function(err, data){
+      if (err) throw err;
+      
+      console.log("Server configured");
+      console.log("Server listening to %s:%d", host, port);
+    });
+  } catch (e) {
+    console.log("Error in reading file for configuration");
+  }
 });
 
 

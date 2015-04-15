@@ -25,11 +25,9 @@
           vocab:hasIdealMoisture ?idealMoisture;
           vocab:hasIdealLight ?idealLight.
 
-  ?sensors  a hydra:Collection;
-            hydra:member [a vocab:Sensor].
+  ?sensors  a hydra:SensorsCollection.
 
-  ?actuators a hydra:Collection;
-            hydra:member [a vocab:Actuator].
+  ?actuators a hydra:ActuatorsCollection.
 
   ?idealTemperature a dbpedia:Temperature;
           vocab:hasValue ?valT;

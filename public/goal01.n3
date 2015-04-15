@@ -1,0 +1,22 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix schema: <http://www.schema.org/>.
+
+
+# Goal: how to get plant's info in order to know what are the ideal plant's habitat for morning, afternoon and night.
+
+{
+	?onePlant a vocab:Plant;
+				vocab:uuid ?id;
+				vocab:hasIdealTemperature ?idealTemperature;
+        vocab:hasIdealMoisture ?idealMoisture;
+        vocab:hasIdealLight ?idealLight.
+}
+=>
+{
+	?onePlant vocab:hasIdealTemperature ?idealTemperature;
+        vocab:hasIdealMoisture ?idealMoisture;
+        vocab:hasIdealLight ?idealLight.
+}.

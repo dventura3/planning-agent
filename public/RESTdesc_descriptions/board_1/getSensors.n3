@@ -7,7 +7,7 @@
 
 
 {
-  ?sensorsList a hydra:Collection.
+  ?sensorsList a vocab:SensorsCollection.
 }
 =>
 {
@@ -16,7 +16,6 @@
             http:resp [ http:body ?sensorsList ].
 
   ?sensorsList hydra:member ?oneSensor.
-
   ?oneSensor a vocab:Sensor;
         iot:uuid ?id.
 }.
