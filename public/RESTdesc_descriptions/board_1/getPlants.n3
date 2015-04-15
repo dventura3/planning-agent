@@ -1,0 +1,19 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+
+
+{
+  ?plantsList a hydra:Collection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI "/plants/";
+            http:resp [ http:body ?plantsList ].
+
+  ?plantsList hydra:member ?onePlant.
+  
+  ?onePlant a vocab:Plant;
+        vocab:uuid ?id.
+}.

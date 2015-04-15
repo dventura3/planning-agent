@@ -1,0 +1,43 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
+
+
+{
+  ?plant a vocab:Plant;
+         vocab:uuid ?id.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ("/plants/" ?id);
+            http:resp [ http:body ?plant ].
+
+  ?plant  schema:name ?name;
+          schema:description ?desc;
+          vocab:hasAssociatedSensors ?sensors;
+          vocab:hasAssociatedActuators ?actuators;
+          vocab:hasIdealTemperature ?idealTemperature;
+          vocab:hasIdealMoisture ?idealMoisture;
+          vocab:hasIdealLight ?idealLight.
+
+  ?sensors  a hydra:Collection;
+            hydra:member [a vocab:Sensor].
+
+  ?actuators a hydra:Collection;
+            hydra:member [a vocab:Actuator].
+
+  ?idealTemperature a dbpedia:Temperature;
+          vocab:hasValue ?valT;
+          iot:unit iot-unit:temperature.si.celsius.           #static unit or ?unit ???
+
+  ?idealMoisture a dbpedia:Moisture;
+          vocab:hasValue ?valM.
+
+  ?idealLight a dbpedia:Light;
+          vocab:hasValue ?valL.
+}.

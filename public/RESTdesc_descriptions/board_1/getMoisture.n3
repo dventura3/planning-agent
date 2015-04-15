@@ -1,0 +1,28 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+
+
+{
+  ?sensor a vocab:MoistureSensor;
+          iot:uuid ?id.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ("/sensors/" ?id);
+            http:resp [ http:body ?sensor ].
+
+  ?sensor iot:name ?name;
+          iot:description ?desc;
+          vocab:madeObservation ?obs.
+
+  ?obs vocab:hasTimestamp ?timestamp;
+       vocab:outputObservation ?result.
+
+  ?result a dbpedia:Moisture;
+        vocab:hasValue ?value.
+}.

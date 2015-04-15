@@ -1,0 +1,19 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+vocab:Sensor a rdfs:Class.
+vocab:TemperatureSensor rdfs:subClassOf vocab:Sensor.
+vocab:MoistureSensor rdfs:subClassOf vocab:Sensor.
+vocab:LightSensor rdfs:subClassOf vocab:Sensor.
+
+
+vocab:Actuator a rdfs:Class.
+vocab:IrrigationPump rdfs:subClassOf vocab:Actuator.
+
+
+vocab:Observation a rdfs:Class.
+vocab:ResultedObservation a rdfs:Class.
+
+
+vocab:Plant a rdfs:Class.

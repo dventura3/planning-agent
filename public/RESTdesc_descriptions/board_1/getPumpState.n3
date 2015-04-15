@@ -1,0 +1,21 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+
+{
+  ?pump a vocab:IrrigationPump;
+        iot:uuid ?id.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ("/actuators/" ?id);
+            http:response [http:body ?pump].
+
+  ?pump iot:uuid ?id;
+        iot:name ?name;
+        iot:description ?desc;
+        vocab:hasSwitchingState ?value.
+}.

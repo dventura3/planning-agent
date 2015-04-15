@@ -1,0 +1,34 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+
+
+{
+  ?actuatorsList a hydra:Collection.
+
+  ?state a st:State;
+      log:includes { ?actuatorsList hydra:member ?oldActuator. }.         # useful????
+
+  ?pump a vocab:IrrigationPump;
+      iot:uuid ?id;
+      iot:name ?name;
+      iot:description ?desc;
+      vocab:hasSwitchingState ?state.
+
+}
+=>
+{
+  _:request http:methodName "POST";
+            http:body ?pump;
+            http:requestURI ("/actuators/");
+            http:response [http:body ?id].
+
+  [ a st:StateTransition;
+    st:typeOperation "add";
+    st:newComponent { ?actuatorsList hydra:member ?pump. };
+    st:originalState ?state
+  ].
+}.
