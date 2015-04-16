@@ -3,7 +3,7 @@
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
 
 
-<plantsCollection> a vocab:PlantsCollection.
+#<plantsCollection> a vocab:PlantsCollection.
 
 
-#_:sensorsCollection a vocab:SensorsCollection.
+<sensorsCollection> a vocab:SensorsCollection.

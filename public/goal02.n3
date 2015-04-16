@@ -15,16 +15,16 @@
   #      vocab:hasAssociatedSensors ?sensorsList.
 
   #?sensorsList a vocab:SensorsCollection;
-  #			hydra:member ?sensor.
+  #     hydra:member ?sensor.
 
-  ?sensor a vocab:TemperatureSensor;
-  			iot:uuid ?id;
-  			vocab:madeObservation ?obs.
+  ?sensor a vocab:Sensor;
+        iot:uuid ?id;
+        vocab:madeObservation ?obs.
 
   ?obs vocab:hasTimestamp ?timestamp;
-      	vocab:outputObservation ?result.
+        vocab:outputObservation ?result.
 }
 =>
 {
-	 ?sensor a vocab:TemperatureSensor.
+  ?sensor a vocab:Sensor.
 }.
