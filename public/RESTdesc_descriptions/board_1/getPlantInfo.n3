@@ -25,9 +25,15 @@
           vocab:hasIdealMoisture ?idealMoisture;
           vocab:hasIdealLight ?idealLight.
 
-  ?sensors  a hydra:SensorsCollection.
+  ?sensors  a vocab:SensorsCollection;
+        hydra:member ?oneSensor.
+  ?oneSensor a vocab:Sensor;
+        iot:uuid ?id_sen.
 
-  ?actuators a hydra:ActuatorsCollection.
+  ?actuators a vocab:ActuatorsCollection;
+        hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator;
+        iot:uuid ?id_act.
 
   ?idealTemperature a dbpedia:Temperature;
           vocab:hasValue ?valT;

@@ -5,18 +5,18 @@
 @prefix schema: <http://www.schema.org/>.
 
 
-# Goal: how to get plant's info in order to know what are the ideal plant's habitat for morning, afternoon and night.
+# Goal: how to get plant's info in order to know what are the ideal plant's habitat for morning, afternoon and night - in other words: Give me the ideal values.
 
 {
-	?onePlant a vocab:Plant;
-				vocab:uuid ?id;
-				vocab:hasIdealTemperature ?idealTemperature;
+  ?onePlant a vocab:Plant;
+        vocab:uuid ?id;
+        vocab:hasIdealTemperature ?idealTemperature;
         vocab:hasIdealMoisture ?idealMoisture;
         vocab:hasIdealLight ?idealLight.
 }
 =>
 {
-	?onePlant vocab:hasIdealTemperature ?idealTemperature;
+  ?onePlant vocab:hasIdealTemperature ?idealTemperature;
         vocab:hasIdealMoisture ?idealMoisture;
         vocab:hasIdealLight ?idealLight.
 }.

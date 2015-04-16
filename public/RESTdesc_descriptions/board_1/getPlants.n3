@@ -12,8 +12,7 @@
             http:requestURI "/plants/";
             http:resp [ http:body ?plantsList ].
 
-  ?plantsList hydra:member ?onePlant.
-  
+  ?plantsList hydra:member ?onePlant.  
   ?onePlant a vocab:Plant;
         vocab:uuid ?id.
 }.
