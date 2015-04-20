@@ -1,9 +1,38 @@
 @prefix vocab: <http://www.example.org/vocab#>.
-@prefix iot: <https://iotdb.org/pub/iot#>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix st: <http://www.mystates.org/states#>.
 
 
-#<plantsCollection> a vocab:PlantsCollection.
+</plants/> a vocab:PlantsCollection.
+
+</plants/1/> a vocab:Plant.
+#			vocab:hasAssociatedSensors [
+#					a vocab:SensorsPlantCollection;
+#					hydra:member </sensors/1/>
+#			].
+#			vocab:hasAssociatedActuators [
+#					a vocab:ActuatorsPlantCollection;
+#					hydra:member </actuators/1/>
+#			].
+
+#</plants/2/> a vocab:Plant.
 
 
-<sensorsCollection> a vocab:SensorsCollection.
+</sensors/> a vocab:SensorsCollection.
+#					hydra:member </sensors/1/>, </sensors/2/>, </sensors/3/>.
+
+</sensors/1/> a vocab:TemperatureSensor.
+</sensors/2/> a vocab:MoistureSensor.
+</sensors/3/> a vocab:LightSensor.
+
+
+</actuators/> a vocab:ActuatorsCollection.
+#					hydra:member </actuators/1/>, </actuators/2/>.
+
+</actuators/1/> a vocab:Actuator.
+</actuators/2/> a vocab:IrrigationPump.
+
+{ 
+</actuators/1/> vocab:hasSwitchingState vocab:off.
+</actuators/2/> vocab:hasSwitchingState vocab:off.
+} a st:State.

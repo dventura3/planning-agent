@@ -8,21 +8,11 @@
 
 {
   ?sensor a vocab:MoistureSensor;
-          iot:uuid ?id.
+          vocab:madeObservation ?obs.
+  ?obs vocab:outputObservation ?result.
 }
 =>
 {
-  _:request http:methodName "GET";
-            http:requestURI ("/sensors/" ?id);
-            http:resp [ http:body ?sensor ].
-
-  ?sensor iot:name ?name;
-          iot:description ?desc;
-          vocab:madeObservation ?obs.
-
-  ?obs vocab:hasTimestamp ?timestamp;
-       vocab:outputObservation ?result.
-
   ?result a dbpedia:Moisture;
         vocab:hasValue ?value.
 }.

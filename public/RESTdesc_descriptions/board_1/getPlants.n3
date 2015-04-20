@@ -9,10 +9,9 @@
 =>
 {
   _:request http:methodName "GET";
-            http:requestURI "/plants/";
+            http:requestURI ?plantsList;
             http:resp [ http:body ?plantsList ].
 
   ?plantsList hydra:member ?onePlant.  
-  ?onePlant a vocab:Plant;
-        vocab:uuid ?id.
+  ?onePlant a vocab:Plant.
 }.

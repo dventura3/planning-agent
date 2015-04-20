@@ -1,0 +1,14 @@
+@prefix p: <proof.n3#>.
+@prefix c: <urn:composition#>.
+
+{ ?serviceCall a c:ServiceCall }
+=>
+{ ?serviceCall a c:ServiceCall }.
+
+{ ?serviceA c:hasDependency ?serviceB }
+=>
+{ ?serviceA c:hasDependency ?serviceB }.
+
+{ ?serviceCall c:details ?result }
+=>
+{ ?serviceCall c:details ?result }.

@@ -1,0 +1,21 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+
+
+{
+  ?actuator a vocab:Actuator.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?actuator;
+            http:response [http:body ?actuator].
+
+  ?actuator iot:name ?name;
+        iot:description ?desc;
+        vocab:hasSwitchingState ?value.
+  ?value a bonsai:SwitchAction;
+      vocab:hasValue ?val.
+}.

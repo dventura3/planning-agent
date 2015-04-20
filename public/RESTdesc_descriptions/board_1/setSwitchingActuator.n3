@@ -1,0 +1,32 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+
+
+{
+  ?actuator a vocab:Actuator.
+
+  ?state a st:State;
+      log:includes { ?actuator vocab:hasSwitchingState ?oldValue. }.
+
+  ?newValue a bonsai:SwitchAction;
+      vocab:hasValue ?val.
+}
+=>
+{
+  _:request http:methodName "PUT";
+            http:body ?newSwitching;
+            http:requestURI ( ?actuator "/" ?newValue);
+            http:response [http:body ?newValue].                    #but I return success or failure
+
+  [ a st:StateTransition;
+    st:typeOperation "replacement";
+    st:oldComponent { ?actuator vocab:hasSwitchingState ?oldValue. };
+    st:newComponent { ?actuator vocab:hasSwitchingState ?newValue. };
+    st:originalState ?state
+  ].
+}.

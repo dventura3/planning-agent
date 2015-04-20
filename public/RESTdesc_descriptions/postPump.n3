@@ -13,7 +13,6 @@
       log:includes { ?actuatorsList hydra:member ?oldActuator. }.         # useful????
 
   ?pump a vocab:IrrigationPump;
-      iot:uuid ?id;
       iot:name ?name;
       iot:description ?desc;
       vocab:hasSwitchingState ?state.
@@ -23,8 +22,8 @@
 {
   _:request http:methodName "POST";
             http:body ?pump;
-            http:requestURI ("/actuators/");
-            http:response [http:body ?id].
+            http:requestURI ?actuatorsList;
+            http:response [http:body ?pump].
 
   [ a st:StateTransition;
     st:typeOperation "add";

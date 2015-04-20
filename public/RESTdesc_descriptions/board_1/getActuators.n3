@@ -1,9 +1,7 @@
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix http: <http://www.w3.org/2011/http#>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
-@prefix iot: <https://iotdb.org/pub/iot#>.
-@prefix st: <http://www.mystates.org/states#>.
-@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+
 
 {
   ?actuatorsList a vocab:ActuatorsCollection.
@@ -11,10 +9,9 @@
 =>
 {
   _:request http:methodName "GET";
-            http:requestURI "/actuators/";
+            http:requestURI ?actuatorsList;
             http:resp [ http:body ?actuatorsList ].
 
   ?actuatorsList hydra:member ?oneActuator.
-  ?oneActuator a vocab:Actuator;
-        iot:uuid ?id.
+  ?oneActuator a vocab:Actuator.
 }.

@@ -1,6 +1,7 @@
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 
 
 
@@ -23,4 +24,18 @@ vocab:PlantsCollection rdfs:subClassOf hydra:Collection.
 
 vocab:SensorsCollection rdfs:subClassOf hydra:Collection.
 
+vocab:SensorsPlantCollection rdfs:subClassOf vocab:Collection.
+
 vocab:ActuatorsCollection rdfs:subClassOf hydra:Collection.
+
+vocab:ActuatorsPlantCollection rdfs:subClassOf vocab:Collection.
+
+
+
+
+
+vocab:off a bonsai:SwitchAction;
+			vocab:hasValue "0".
+
+vocab:on a bonsai:SwitchAction;
+			vocab:hasValue "1".

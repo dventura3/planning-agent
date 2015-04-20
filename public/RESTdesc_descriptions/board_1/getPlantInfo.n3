@@ -8,13 +8,12 @@
 
 
 {
-  ?plant a vocab:Plant;
-         vocab:uuid ?id.
+  ?plant a vocab:Plant.
 }
 =>
 {
   _:request http:methodName "GET";
-            http:requestURI ("/plants/" ?id);
+            http:requestURI ?plant;
             http:resp [ http:body ?plant ].
 
   ?plant  schema:name ?name;
@@ -25,19 +24,17 @@
           vocab:hasIdealMoisture ?idealMoisture;
           vocab:hasIdealLight ?idealLight.
 
-  ?sensors  a vocab:SensorsCollection;
-        hydra:member ?oneSensor.
-  ?oneSensor a vocab:Sensor;
-        iot:uuid ?id_sen.
+  ?sensors  a vocab:SensorsPlantCollection;
+          hydra:member ?oneSensor.
+  ?oneSensor a vocab:Sensor.
 
-  ?actuators a vocab:ActuatorsCollection;
-        hydra:member ?oneActuator.
-  ?oneActuator a vocab:Actuator;
-        iot:uuid ?id_act.
+  ?actuators a vocab:ActuatorsPlantCollection;
+          hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator.
 
   ?idealTemperature a dbpedia:Temperature;
           vocab:hasValue ?valT;
-          iot:unit iot-unit:temperature.si.celsius.           #static unit or ?unit ???
+          iot:unit iot-unit:temperature.si.celsius.
 
   ?idealMoisture a dbpedia:Moisture;
           vocab:hasValue ?valM.

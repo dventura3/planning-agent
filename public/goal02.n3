@@ -10,19 +10,17 @@
 # Goal: how to get the sensors associated to one plant and their values? - in other words: Give me the real and currently observations.
 
 {
-  #?onePlant a vocab:Plant;
-  #      vocab:uuid ?id;
-  #      vocab:hasAssociatedSensors ?sensorsList.
+  ?onePlant a vocab:Plant;
+      vocab:hasAssociatedSensors ?sensorsList.
 
-  #?sensorsList a vocab:SensorsCollection;
-  #     hydra:member ?sensor.
+  ?sensorsList a vocab:SensorsPlantCollection;
+      hydra:member ?sensor.
 
   ?sensor a vocab:Sensor;
-        iot:uuid ?id;
-        vocab:madeObservation ?obs.
+      vocab:madeObservation ?obs.
 
   ?obs vocab:hasTimestamp ?timestamp;
-        vocab:outputObservation ?result.
+      vocab:outputObservation ?result.
 }
 =>
 {
