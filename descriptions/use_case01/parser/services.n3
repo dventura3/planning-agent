@@ -1,4 +1,4 @@
-@prefix p: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/public/outputs/out.n3#>.
+@prefix p: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/outputs/out.n3#>.
 @prefix r: <http://www.w3.org/2000/10/swap/reason#>.
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.

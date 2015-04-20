@@ -53,7 +53,7 @@
   r:rule <#lemma6>.
 
 <#lemma3> a r:Extraction; r:gives {<file:///plants/1/> a vocab:Plant};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/public/knowledge.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/knowledge.n3>].
 
 <#lemma4> a r:Inference; r:gives {_:sk8 http:methodName "GET".
   _:sk8 http:requestURI <file:///plants/1/>.
@@ -125,7 +125,7 @@
   var:x2 vocab:madeObservation var:x3.
   var:x3 vocab:hasTimestamp var:x4.
   var:x3 vocab:outputObservation var:x5} => {var:x2 a vocab:Sensor}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/public/goal02.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/goal02.n3>].
 
 <#lemma7> a r:Inference; r:gives {_:sk22 http:methodName "GET".
   _:sk22 http:requestURI <file:///plants/>.
@@ -226,7 +226,7 @@
   var:x8 vocab:hasValue var:x13.
   var:x9 a <http://dbpedia.org/resource/Light>.
   var:x9 vocab:hasValue var:x14}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/public/RESTdesc_descriptions/board_1/getPlantInfo.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1/getPlantInfo.n3>].
 
 <#lemma11> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7. {var:x0 a vocab:Sensor} => {var:x1 http:methodName "GET".
   var:x1 http:requestURI var:x0.
@@ -237,10 +237,10 @@
   var:x0 vocab:madeObservation var:x5.
   var:x5 vocab:hasTimestamp var:x6.
   var:x5 vocab:outputObservation var:x7}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/public/RESTdesc_descriptions/board_1/getSensor.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1/getSensor.n3>].
 
 <#lemma12> a r:Extraction; r:gives {<file:///plants/> a vocab:PlantsCollection};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/public/knowledge.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/knowledge.n3>].
 
 <#lemma13> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3. {var:x0 a vocab:PlantsCollection} => {var:x1 http:methodName "GET".
   var:x1 http:requestURI var:x0.
@@ -248,7 +248,7 @@
   var:x2 http:body var:x0.
   var:x0 hydra:member var:x3.
   var:x3 a vocab:Plant}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/public/RESTdesc_descriptions/board_1/getPlants.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1/getPlants.n3>].
 
-#ENDS 0.170 [sec] TC=52 TP=197 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.613 [sec] TC=52 TP=197 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 
