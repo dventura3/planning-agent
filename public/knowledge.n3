@@ -3,19 +3,18 @@
 @prefix st: <http://www.mystates.org/states#>.
 
 
+
 </plants/> a vocab:PlantsCollection.
 
-</plants/1/> a vocab:Plant.
+</plants/1/> a vocab:Plant;
 #			vocab:hasAssociatedSensors [
 #					a vocab:SensorsPlantCollection;
 #					hydra:member </sensors/1/>
 #			].
-#			vocab:hasAssociatedActuators [
-#					a vocab:ActuatorsPlantCollection;
-#					hydra:member </actuators/1/>
-#			].
-
-#</plants/2/> a vocab:Plant.
+			vocab:hasAssociatedActuators [
+					a vocab:ActuatorsPlantCollection;
+					hydra:member </actuators/1/>
+			].
 
 
 </sensors/> a vocab:SensorsCollection.
@@ -36,3 +35,4 @@
 </actuators/1/> vocab:hasSwitchingState vocab:off.
 </actuators/2/> vocab:hasSwitchingState vocab:off.
 } a st:State.
+

@@ -16,6 +16,4 @@
   ?actuator iot:name ?name;
         iot:description ?desc;
         vocab:hasSwitchingState ?value.
-  ?value a bonsai:SwitchAction;
-      vocab:hasValue ?val.
 }.
