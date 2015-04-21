@@ -7,13 +7,24 @@
 </plants/> a vocab:PlantsCollection.
 
 </plants/1/> a vocab:Plant;
-#			vocab:hasAssociatedSensors [
-#					a vocab:SensorsPlantCollection;
-#					hydra:member </sensors/1/>
-#			].
+			vocab:hasAssociatedSensors [
+					a vocab:SensorsPlantCollection;
+					hydra:member </sensors/1/>
+			];
 			vocab:hasAssociatedActuators [
 					a vocab:ActuatorsPlantCollection;
 					hydra:member </actuators/1/>
+			].
+
+
+</plants/2/> a vocab:Plant;
+			vocab:hasAssociatedSensors [
+					a vocab:SensorsPlantCollection;
+					hydra:member </sensors/2/>
+			];
+			vocab:hasAssociatedActuators [
+					a vocab:ActuatorsPlantCollection;
+					hydra:member </actuators/2/>
 			].
 
 
@@ -28,7 +39,7 @@
 </actuators/> a vocab:ActuatorsCollection.
 #					hydra:member </actuators/1/>, </actuators/2/>.
 
-</actuators/1/> a vocab:Actuator.
+</actuators/1/> a vocab:IrrigationPump.
 </actuators/2/> a vocab:IrrigationPump.
 
 { 
