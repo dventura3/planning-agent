@@ -62,11 +62,11 @@ var getEntryPoint = function(req, res) {
 
 var getPlanOnlyBoard = function(req, res){
   var boardID_required = req.params.boardID;
-  reasoner.generatePlanToKnowPlantInfo(boardID_required, function(){
+  //reasoner.generatePlanToKnowPlantInfo(boardID_required, function(){
     parser.readParserFile();
     //TODO
     res.send({success:true});
-  });
+  //});
 }
 
 
