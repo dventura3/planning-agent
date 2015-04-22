@@ -24,64 +24,89 @@
 @prefix c: <urn:composition#>.
 @prefix ns1: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/parser/proof.n3#>.
 
-p:lemma4 a c:ServiceCall.
-p:lemma6 a c:ServiceCall.
-p:lemma7 a c:ServiceCall.
-p:lemma7 c:hasDependency p:lemma6.
-p:lemma4 c:details {_:sk8_1 http:methodName "GET".
-  _:sk8_1 http:requestURI <file:///plants/1/>.
-  _:sk8_1 http:resp _:sk9_1.
-  _:sk9_1 http:body <file:///plants/1/>.
-  <file:///plants/1/> <http://www.schema.org/name> _:sk10_1.
-  <file:///plants/1/> <http://www.schema.org/description> _:sk11_1.
-  <file:///plants/1/> vocab:hasAssociatedSensors _:sk12_1.
-  <file:///plants/1/> vocab:hasAssociatedActuators _:sk13_1.
-  <file:///plants/1/> vocab:hasIdealTemperature _:sk14_3.
-  <file:///plants/1/> vocab:hasIdealMoisture _:sk15_3.
-  <file:///plants/1/> vocab:hasIdealLight _:sk16_3.
-  _:sk12_1 a vocab:SensorsPlantCollection.
-  _:sk12_1 hydra:member _:sk17_1.
-  _:sk17_1 a vocab:Sensor.
-  _:sk13_1 a vocab:ActuatorsPlantCollection.
-  _:sk13_1 hydra:member _:sk18_1.
-  _:sk18_1 a vocab:Actuator.
-  _:sk14_3 a <http://dbpedia.org/resource/Temperature>.
-  _:sk14_3 vocab:hasValue _:sk19_1.
-  _:sk14_3 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk15_3 a <http://dbpedia.org/resource/Moisture>.
-  _:sk15_3 vocab:hasValue _:sk20_1.
-  _:sk16_3 a <http://dbpedia.org/resource/Light>.
-  _:sk16_3 vocab:hasValue _:sk21_1}.
-p:lemma6 c:details {_:sk22_1 http:methodName "GET".
-  _:sk22_1 http:requestURI <file:///plants/>.
-  _:sk22_1 http:resp _:sk23_1.
-  _:sk23_1 http:body <file:///plants/>.
-  <file:///plants/> hydra:member _:sk24_3.
-  _:sk24_3 a vocab:Plant}.
-p:lemma7 c:details {_:sk58_1 http:methodName "GET".
-  _:sk58_1 http:requestURI _:sk24_4.
-  _:sk58_1 http:resp _:sk59_1.
-  _:sk59_1 http:body _:sk24_4.
-  _:sk24_4 <http://www.schema.org/name> _:sk60_1.
-  _:sk24_4 <http://www.schema.org/description> _:sk61_1.
-  _:sk24_4 vocab:hasAssociatedSensors _:sk62_1.
-  _:sk24_4 vocab:hasAssociatedActuators _:sk63_1.
-  _:sk24_4 vocab:hasIdealTemperature _:sk64_3.
-  _:sk24_4 vocab:hasIdealMoisture _:sk65_3.
-  _:sk24_4 vocab:hasIdealLight _:sk66_3.
-  _:sk62_1 a vocab:SensorsPlantCollection.
-  _:sk62_1 hydra:member _:sk67_1.
-  _:sk67_1 a vocab:Sensor.
-  _:sk63_1 a vocab:ActuatorsPlantCollection.
-  _:sk63_1 hydra:member _:sk68_1.
-  _:sk68_1 a vocab:Actuator.
-  _:sk64_3 a <http://dbpedia.org/resource/Temperature>.
-  _:sk64_3 vocab:hasValue _:sk69_1.
-  _:sk64_3 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk65_3 a <http://dbpedia.org/resource/Moisture>.
-  _:sk65_3 vocab:hasValue _:sk70_1.
-  _:sk66_3 a <http://dbpedia.org/resource/Light>.
-  _:sk66_3 vocab:hasValue _:sk71_1}.
+p:lemma5 a c:ServiceCall.
+p:lemma8 a c:ServiceCall.
+p:lemma9 a c:ServiceCall.
+p:lemma10 a c:ServiceCall.
+p:lemma10 c:hasDependency p:lemma9.
+p:lemma5 c:details {_:sk3_1 http:methodName "GET".
+  _:sk3_1 http:requestURI <file:///plants/1/>.
+  _:sk3_1 http:resp _:sk4_1.
+  _:sk4_1 http:body <file:///plants/1/>.
+  <file:///plants/1/> <http://www.schema.org/name> _:sk5_1.
+  <file:///plants/1/> <http://www.schema.org/description> _:sk6_1.
+  <file:///plants/1/> vocab:hasAssociatedSensors _:sk7_1.
+  <file:///plants/1/> vocab:hasAssociatedActuators _:sk8_1.
+  <file:///plants/1/> vocab:hasIdealTemperature _:sk9_3.
+  <file:///plants/1/> vocab:hasIdealMoisture _:sk10_3.
+  <file:///plants/1/> vocab:hasIdealLight _:sk11_3.
+  _:sk7_1 a vocab:SensorsPlantCollection.
+  _:sk7_1 hydra:member _:sk12_1.
+  _:sk12_1 a vocab:Sensor.
+  _:sk8_1 a vocab:ActuatorsPlantCollection.
+  _:sk8_1 hydra:member _:sk13_1.
+  _:sk13_1 a vocab:Actuator.
+  _:sk9_3 a <http://dbpedia.org/resource/Temperature>.
+  _:sk9_3 vocab:hasValue _:sk14_1.
+  _:sk9_3 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
+  _:sk10_3 a <http://dbpedia.org/resource/Moisture>.
+  _:sk10_3 vocab:hasValue _:sk15_1.
+  _:sk11_3 a <http://dbpedia.org/resource/Light>.
+  _:sk11_3 vocab:hasValue _:sk16_1}.
+p:lemma8 c:details {_:sk17_1 http:methodName "GET".
+  _:sk17_1 http:requestURI <file:///plants/2/>.
+  _:sk17_1 http:resp _:sk18_1.
+  _:sk18_1 http:body <file:///plants/2/>.
+  <file:///plants/2/> <http://www.schema.org/name> _:sk19_1.
+  <file:///plants/2/> <http://www.schema.org/description> _:sk20_1.
+  <file:///plants/2/> vocab:hasAssociatedSensors _:sk21_1.
+  <file:///plants/2/> vocab:hasAssociatedActuators _:sk22_1.
+  <file:///plants/2/> vocab:hasIdealTemperature _:sk23_3.
+  <file:///plants/2/> vocab:hasIdealMoisture _:sk24_3.
+  <file:///plants/2/> vocab:hasIdealLight _:sk25_3.
+  _:sk21_1 a vocab:SensorsPlantCollection.
+  _:sk21_1 hydra:member _:sk26_1.
+  _:sk26_1 a vocab:Sensor.
+  _:sk22_1 a vocab:ActuatorsPlantCollection.
+  _:sk22_1 hydra:member _:sk27_1.
+  _:sk27_1 a vocab:Actuator.
+  _:sk23_3 a <http://dbpedia.org/resource/Temperature>.
+  _:sk23_3 vocab:hasValue _:sk28_1.
+  _:sk23_3 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
+  _:sk24_3 a <http://dbpedia.org/resource/Moisture>.
+  _:sk24_3 vocab:hasValue _:sk29_1.
+  _:sk25_3 a <http://dbpedia.org/resource/Light>.
+  _:sk25_3 vocab:hasValue _:sk30_1}.
+p:lemma9 c:details {_:sk31_1 http:methodName "GET".
+  _:sk31_1 http:requestURI <file:///plants/>.
+  _:sk31_1 http:resp _:sk32_1.
+  _:sk32_1 http:body <file:///plants/>.
+  <file:///plants/> hydra:member _:sk33_3.
+  _:sk33_3 a vocab:Plant}.
+p:lemma10 c:details {_:sk76_1 http:methodName "GET".
+  _:sk76_1 http:requestURI _:sk33_4.
+  _:sk76_1 http:resp _:sk77_1.
+  _:sk77_1 http:body _:sk33_4.
+  _:sk33_4 <http://www.schema.org/name> _:sk78_1.
+  _:sk33_4 <http://www.schema.org/description> _:sk79_1.
+  _:sk33_4 vocab:hasAssociatedSensors _:sk80_1.
+  _:sk33_4 vocab:hasAssociatedActuators _:sk81_1.
+  _:sk33_4 vocab:hasIdealTemperature _:sk82_3.
+  _:sk33_4 vocab:hasIdealMoisture _:sk83_3.
+  _:sk33_4 vocab:hasIdealLight _:sk84_3.
+  _:sk80_1 a vocab:SensorsPlantCollection.
+  _:sk80_1 hydra:member _:sk85_1.
+  _:sk85_1 a vocab:Sensor.
+  _:sk81_1 a vocab:ActuatorsPlantCollection.
+  _:sk81_1 hydra:member _:sk86_1.
+  _:sk86_1 a vocab:Actuator.
+  _:sk82_3 a <http://dbpedia.org/resource/Temperature>.
+  _:sk82_3 vocab:hasValue _:sk87_1.
+  _:sk82_3 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
+  _:sk83_3 a <http://dbpedia.org/resource/Moisture>.
+  _:sk83_3 vocab:hasValue _:sk88_1.
+  _:sk84_3 a <http://dbpedia.org/resource/Light>.
+  _:sk84_3 vocab:hasValue _:sk89_1}.
 
-#ENDS 0.104 [sec] TC=14 TP=28 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.116 [sec] TC=18 TP=36 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 

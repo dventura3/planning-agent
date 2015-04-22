@@ -1,13 +1,9 @@
 var fs = require('fs');
 var express = require('express');
 var bodyParser = require('body-parser');
-var reasoner_module = require('./lib/Reasoner');
-var parser_module = require('./lib/Parser');
-
+var algorithms_module = require('./lib/AlgorithmsManager');
 
 var boards = [];
-var reasoner = null;
-var parser = null;
 
 /*--------------- Express configuration goes here: -------------------*/
 var app = express();
@@ -41,8 +37,7 @@ app.listen(port, host, function() {
       //NB: I have to add the boardID => used to identify the directory (or the single FileName) contained
       //the RESTdesc descriptions for each board!!!
 
-      reasoner = new reasoner_module.Reasoner(__dirname,  "eye");
-      parser = new parser_module.Parser(__dirname);
+      algorithms = new algorithms_module.AlgorithmsManager(__dirname);
 
       console.log("Server configured");
       console.log("Server listening to %s:%d", host, port);
@@ -62,11 +57,8 @@ var getEntryPoint = function(req, res) {
 
 var getPlanOnlyBoard = function(req, res){
   var boardID_required = req.params.boardID;
-  //reasoner.generatePlanToKnowPlantInfo(boardID_required, function(){
-    parser.readParserFile();
-    //TODO
-    res.send({success:true});
-  //});
+  algorithms.firstUseCase(boardID_required);
+  res.send({success:true});
 }
 
 
