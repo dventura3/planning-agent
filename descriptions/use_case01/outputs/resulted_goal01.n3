@@ -10,37 +10,37 @@
             "<file:///plants/1/>": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.schema.org/name>",
+                        "@id": "http://www.schema.org/name",
                         "domain": "<file:///plants/1/>",
                         "rainge": "_:sk5_1"
                     },
                     {
-                        "@id": "<http://www.schema.org/description>",
+                        "@id": "http://www.schema.org/description",
                         "domain": "<file:///plants/1/>",
                         "rainge": "_:sk6_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasAssociatedSensors>",
+                        "@id": "http://www.example.org/vocab#hasAssociatedSensors",
                         "domain": "<file:///plants/1/>",
                         "rainge": "_:sk7_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasAssociatedActuators>",
+                        "@id": "http://www.example.org/vocab#hasAssociatedActuators",
                         "domain": "<file:///plants/1/>",
                         "rainge": "_:sk8_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealTemperature>",
+                        "@id": "http://www.example.org/vocab#hasIdealTemperature",
                         "domain": "<file:///plants/1/>",
                         "rainge": "_:sk9_3"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealMoisture>",
+                        "@id": "http://www.example.org/vocab#hasIdealMoisture",
                         "domain": "<file:///plants/1/>",
                         "rainge": "_:sk10_3"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealLight>",
+                        "@id": "http://www.example.org/vocab#hasIdealLight",
                         "domain": "<file:///plants/1/>",
                         "rainge": "_:sk11_3"
                     }
@@ -49,65 +49,65 @@
             "_:sk7_1": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.w3.org/ns/hydra/core#member>",
+                        "@id": "http://www.w3.org/ns/hydra/core#member",
                         "domain": "_:sk7_1",
                         "rainge": "_:sk12_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#SensorsPlantCollection>"
+                "@type": "http://www.example.org/vocab#SensorsPlantCollection"
             },
             "_:sk12_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Sensor>"
+                "@type": "http://www.example.org/vocab#Sensor"
             },
             "_:sk8_1": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.w3.org/ns/hydra/core#member>",
+                        "@id": "http://www.w3.org/ns/hydra/core#member",
                         "domain": "_:sk8_1",
                         "rainge": "_:sk13_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection>"
+                "@type": "http://www.example.org/vocab#ActuatorsPlantCollection"
             },
             "_:sk13_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Actuator>"
+                "@type": "http://www.example.org/vocab#Actuator"
             },
             "_:sk9_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk9_3",
                         "rainge": "_:sk14_1"
                     },
                     {
-                        "@id": "<https://iotdb.org/pub/iot#unit>",
+                        "@id": "https://iotdb.org/pub/iot#unit",
                         "domain": "_:sk9_3",
                         "rainge": "<https://iotdb.org/pub/iot-unit#temperature.si.celsius>"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Temperature>"
+                "@type": "http://dbpedia.org/resource/Temperature"
             },
             "_:sk10_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk10_3",
                         "rainge": "_:sk15_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Moisture>"
+                "@type": "http://dbpedia.org/resource/Moisture"
             },
             "_:sk11_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk11_3",
                         "rainge": "_:sk16_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Light>"
+                "@type": "http://dbpedia.org/resource/Light"
             }
         },
         "p:lemma8": {
@@ -120,37 +120,37 @@
             "<file:///plants/2/>": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.schema.org/name>",
+                        "@id": "http://www.schema.org/name",
                         "domain": "<file:///plants/2/>",
                         "rainge": "_:sk19_1"
                     },
                     {
-                        "@id": "<http://www.schema.org/description>",
+                        "@id": "http://www.schema.org/description",
                         "domain": "<file:///plants/2/>",
                         "rainge": "_:sk20_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasAssociatedSensors>",
+                        "@id": "http://www.example.org/vocab#hasAssociatedSensors",
                         "domain": "<file:///plants/2/>",
                         "rainge": "_:sk21_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasAssociatedActuators>",
+                        "@id": "http://www.example.org/vocab#hasAssociatedActuators",
                         "domain": "<file:///plants/2/>",
                         "rainge": "_:sk22_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealTemperature>",
+                        "@id": "http://www.example.org/vocab#hasIdealTemperature",
                         "domain": "<file:///plants/2/>",
                         "rainge": "_:sk23_3"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealMoisture>",
+                        "@id": "http://www.example.org/vocab#hasIdealMoisture",
                         "domain": "<file:///plants/2/>",
                         "rainge": "_:sk24_3"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealLight>",
+                        "@id": "http://www.example.org/vocab#hasIdealLight",
                         "domain": "<file:///plants/2/>",
                         "rainge": "_:sk25_3"
                     }
@@ -159,65 +159,65 @@
             "_:sk21_1": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.w3.org/ns/hydra/core#member>",
+                        "@id": "http://www.w3.org/ns/hydra/core#member",
                         "domain": "_:sk21_1",
                         "rainge": "_:sk26_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#SensorsPlantCollection>"
+                "@type": "http://www.example.org/vocab#SensorsPlantCollection"
             },
             "_:sk26_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Sensor>"
+                "@type": "http://www.example.org/vocab#Sensor"
             },
             "_:sk22_1": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.w3.org/ns/hydra/core#member>",
+                        "@id": "http://www.w3.org/ns/hydra/core#member",
                         "domain": "_:sk22_1",
                         "rainge": "_:sk27_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection>"
+                "@type": "http://www.example.org/vocab#ActuatorsPlantCollection"
             },
             "_:sk27_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Actuator>"
+                "@type": "http://www.example.org/vocab#Actuator"
             },
             "_:sk23_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk23_3",
                         "rainge": "_:sk28_1"
                     },
                     {
-                        "@id": "<https://iotdb.org/pub/iot#unit>",
+                        "@id": "https://iotdb.org/pub/iot#unit",
                         "domain": "_:sk23_3",
                         "rainge": "<https://iotdb.org/pub/iot-unit#temperature.si.celsius>"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Temperature>"
+                "@type": "http://dbpedia.org/resource/Temperature"
             },
             "_:sk24_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk24_3",
                         "rainge": "_:sk29_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Moisture>"
+                "@type": "http://dbpedia.org/resource/Moisture"
             },
             "_:sk25_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk25_3",
                         "rainge": "_:sk30_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Light>"
+                "@type": "http://dbpedia.org/resource/Light"
             }
         },
         "p:lemma9": {
@@ -230,7 +230,7 @@
             "<file:///plants/>": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.w3.org/ns/hydra/core#member>",
+                        "@id": "http://www.w3.org/ns/hydra/core#member",
                         "domain": "<file:///plants/>",
                         "rainge": "_:sk33_3"
                     }
@@ -238,7 +238,7 @@
             },
             "_:sk33_3": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Plant>"
+                "@type": "http://www.example.org/vocab#Plant"
             }
         },
         "p:lemma10": {
@@ -253,37 +253,37 @@
             "_:sk33_4": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.schema.org/name>",
+                        "@id": "http://www.schema.org/name",
                         "domain": "_:sk33_4",
                         "rainge": "_:sk78_1"
                     },
                     {
-                        "@id": "<http://www.schema.org/description>",
+                        "@id": "http://www.schema.org/description",
                         "domain": "_:sk33_4",
                         "rainge": "_:sk79_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasAssociatedSensors>",
+                        "@id": "http://www.example.org/vocab#hasAssociatedSensors",
                         "domain": "_:sk33_4",
                         "rainge": "_:sk80_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasAssociatedActuators>",
+                        "@id": "http://www.example.org/vocab#hasAssociatedActuators",
                         "domain": "_:sk33_4",
                         "rainge": "_:sk81_1"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealTemperature>",
+                        "@id": "http://www.example.org/vocab#hasIdealTemperature",
                         "domain": "_:sk33_4",
                         "rainge": "_:sk82_3"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealMoisture>",
+                        "@id": "http://www.example.org/vocab#hasIdealMoisture",
                         "domain": "_:sk33_4",
                         "rainge": "_:sk83_3"
                     },
                     {
-                        "@id": "<http://www.example.org/vocab#hasIdealLight>",
+                        "@id": "http://www.example.org/vocab#hasIdealLight",
                         "domain": "_:sk33_4",
                         "rainge": "_:sk84_3"
                     }
@@ -292,65 +292,65 @@
             "_:sk80_1": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.w3.org/ns/hydra/core#member>",
+                        "@id": "http://www.w3.org/ns/hydra/core#member",
                         "domain": "_:sk80_1",
                         "rainge": "_:sk85_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#SensorsPlantCollection>"
+                "@type": "http://www.example.org/vocab#SensorsPlantCollection"
             },
             "_:sk85_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Sensor>"
+                "@type": "http://www.example.org/vocab#Sensor"
             },
             "_:sk81_1": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.w3.org/ns/hydra/core#member>",
+                        "@id": "http://www.w3.org/ns/hydra/core#member",
                         "domain": "_:sk81_1",
                         "rainge": "_:sk86_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection>"
+                "@type": "http://www.example.org/vocab#ActuatorsPlantCollection"
             },
             "_:sk86_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Actuator>"
+                "@type": "http://www.example.org/vocab#Actuator"
             },
             "_:sk82_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk82_3",
                         "rainge": "_:sk87_1"
                     },
                     {
-                        "@id": "<https://iotdb.org/pub/iot#unit>",
+                        "@id": "https://iotdb.org/pub/iot#unit",
                         "domain": "_:sk82_3",
                         "rainge": "<https://iotdb.org/pub/iot-unit#temperature.si.celsius>"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Temperature>"
+                "@type": "http://dbpedia.org/resource/Temperature"
             },
             "_:sk83_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk83_3",
                         "rainge": "_:sk88_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Moisture>"
+                "@type": "http://dbpedia.org/resource/Moisture"
             },
             "_:sk84_3": {
                 "supportedProperty": [
                     {
-                        "@id": "<http://www.example.org/vocab#hasValue>",
+                        "@id": "http://www.example.org/vocab#hasValue",
                         "domain": "_:sk84_3",
                         "rainge": "_:sk89_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Light>"
+                "@type": "http://dbpedia.org/resource/Light"
             }
         }
     },
