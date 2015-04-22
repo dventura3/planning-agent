@@ -54,11 +54,11 @@
                         "rainge": "_:sk12_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#SensorsPlantCollection.>"
+                "@type": "<http://www.example.org/vocab#SensorsPlantCollection>"
             },
             "_:sk12_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Sensor.>"
+                "@type": "<http://www.example.org/vocab#Sensor>"
             },
             "_:sk8_1": {
                 "supportedProperty": [
@@ -68,11 +68,11 @@
                         "rainge": "_:sk13_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection.>"
+                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection>"
             },
             "_:sk13_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Actuator.>"
+                "@type": "<http://www.example.org/vocab#Actuator>"
             },
             "_:sk9_3": {
                 "supportedProperty": [
@@ -84,10 +84,10 @@
                     {
                         "@id": "<https://iotdb.org/pub/iot#unit>",
                         "domain": "_:sk9_3",
-                        "rainge": "<https://iotdborg/pub/iot-unit#temperature.si.celsius>."
+                        "rainge": "<https://iotdb.org/pub/iot-unit#temperature.si.celsius>"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Temperature>."
+                "@type": "<http://dbpedia.org/resource/Temperature>"
             },
             "_:sk10_3": {
                 "supportedProperty": [
@@ -97,7 +97,7 @@
                         "rainge": "_:sk15_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Moisture>."
+                "@type": "<http://dbpedia.org/resource/Moisture>"
             },
             "_:sk11_3": {
                 "supportedProperty": [
@@ -107,7 +107,7 @@
                         "rainge": "_:sk16_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Light>."
+                "@type": "<http://dbpedia.org/resource/Light>"
             }
         },
         "p:lemma8": {
@@ -164,11 +164,11 @@
                         "rainge": "_:sk26_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#SensorsPlantCollection.>"
+                "@type": "<http://www.example.org/vocab#SensorsPlantCollection>"
             },
             "_:sk26_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Sensor.>"
+                "@type": "<http://www.example.org/vocab#Sensor>"
             },
             "_:sk22_1": {
                 "supportedProperty": [
@@ -178,11 +178,11 @@
                         "rainge": "_:sk27_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection.>"
+                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection>"
             },
             "_:sk27_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Actuator.>"
+                "@type": "<http://www.example.org/vocab#Actuator>"
             },
             "_:sk23_3": {
                 "supportedProperty": [
@@ -194,10 +194,10 @@
                     {
                         "@id": "<https://iotdb.org/pub/iot#unit>",
                         "domain": "_:sk23_3",
-                        "rainge": "<https://iotdborg/pub/iot-unit#temperature.si.celsius>."
+                        "rainge": "<https://iotdb.org/pub/iot-unit#temperature.si.celsius>"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Temperature>."
+                "@type": "<http://dbpedia.org/resource/Temperature>"
             },
             "_:sk24_3": {
                 "supportedProperty": [
@@ -207,7 +207,7 @@
                         "rainge": "_:sk29_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Moisture>."
+                "@type": "<http://dbpedia.org/resource/Moisture>"
             },
             "_:sk25_3": {
                 "supportedProperty": [
@@ -217,7 +217,7 @@
                         "rainge": "_:sk30_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Light>."
+                "@type": "<http://dbpedia.org/resource/Light>"
             }
         },
         "p:lemma9": {
@@ -238,7 +238,7 @@
             },
             "_:sk33_3": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Plant}.>"
+                "@type": "<http://www.example.org/vocab#Plant>"
             }
         },
         "p:lemma10": {
@@ -297,11 +297,11 @@
                         "rainge": "_:sk85_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#SensorsPlantCollection.>"
+                "@type": "<http://www.example.org/vocab#SensorsPlantCollection>"
             },
             "_:sk85_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Sensor.>"
+                "@type": "<http://www.example.org/vocab#Sensor>"
             },
             "_:sk81_1": {
                 "supportedProperty": [
@@ -311,11 +311,11 @@
                         "rainge": "_:sk86_1"
                     }
                 ],
-                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection.>"
+                "@type": "<http://www.example.org/vocab#ActuatorsPlantCollection>"
             },
             "_:sk86_1": {
                 "supportedProperty": [],
-                "@type": "<http://www.example.org/vocab#Actuator.>"
+                "@type": "<http://www.example.org/vocab#Actuator>"
             },
             "_:sk82_3": {
                 "supportedProperty": [
@@ -327,10 +327,10 @@
                     {
                         "@id": "<https://iotdb.org/pub/iot#unit>",
                         "domain": "_:sk82_3",
-                        "rainge": "<https://iotdborg/pub/iot-unit#temperature.si.celsius>."
+                        "rainge": "<https://iotdb.org/pub/iot-unit#temperature.si.celsius>"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Temperature>."
+                "@type": "<http://dbpedia.org/resource/Temperature>"
             },
             "_:sk83_3": {
                 "supportedProperty": [
@@ -340,7 +340,7 @@
                         "rainge": "_:sk88_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Moisture>."
+                "@type": "<http://dbpedia.org/resource/Moisture>"
             },
             "_:sk84_3": {
                 "supportedProperty": [
@@ -350,7 +350,7 @@
                         "rainge": "_:sk89_1"
                     }
                 ],
-                "@type": "<http://dbpedia.org/resource/Light>."
+                "@type": "<http://dbpedia.org/resource/Light>"
             }
         }
     },
