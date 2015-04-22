@@ -19,7 +19,6 @@
 =>
 {
   _:request http:methodName "PUT";
-            http:body ?newSwitching;
             http:requestURI ( ?actuator "/" ?val);
             http:response [http:body ?newValue].                    #but I return success or failure
 
