@@ -23,7 +23,7 @@
   _:request http:methodName "POST";
             http:body ?pump;
             http:requestURI ?actuatorsList;
-            http:response [http:body ?pump].
+            http:resp [http:body ?pump].
 
   [ a st:StateTransition;
     st:typeOperation "add";

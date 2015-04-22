@@ -1,0 +1,40 @@
+#Processed by Id: euler.yap 7962 2015-04-16 09:59:02Z josd
+#eye --traditional outputs/out.n3 parser/services.n3 --query parser/composition.n3 --nope
+
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
+@prefix r: <http://www.w3.org/2000/10/swap/reason#>.
+@prefix var: <http://localhost/var#>.
+@prefix n3: <http://www.w3.org/2004/06/rei#>.
+@prefix p: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/outputs/out.n3#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix c: <urn:composition#>.
+@prefix ns1: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/parser/proof.n3#>.
+
+p:lemma9 a c:ServiceCall.
+p:lemma9 c:details {_:sk39_1 http:methodName "PUT".
+  _:sk39_1 http:requestURI (<file:///actuators/1/> "1").
+  _:sk39_1 http:resp _:sk41_1.
+  _:sk41_1 http:body vocab:on.
+  _:sk42_1 a st:StateTransition.
+  _:sk42_1 st:typeOperation "replacement".
+  _:sk42_1 st:oldComponent {<file:///actuators/1/> vocab:hasSwitchingState vocab:off}.
+  _:sk42_1 st:newComponent {<file:///actuators/1/> vocab:hasSwitchingState vocab:on}.
+  _:sk42_1 st:originalState {<file:///actuators/1/> vocab:hasSwitchingState vocab:off.
+    <file:///actuators/2/> vocab:hasSwitchingState vocab:off}}.
+
+#ENDS 0.077 [sec] TC=4 TP=8 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+
