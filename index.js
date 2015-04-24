@@ -3,7 +3,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var algorithms_module = require('./lib/AlgorithmsManager');
 
-var boards = [];
 
 /*--------------- Express configuration goes here: -------------------*/
 var app = express();
@@ -31,7 +30,7 @@ app.listen(port, host, function() {
     fs.readFile('lib/fakeBoards.json', function(err, data){
       if (err) throw err;
       
-      boards = data.boards;
+      boards = JSON.parse(data).boards;
 
       //TODO: Here should be done all the HTTP requestes to the boards to obtain the RESTdesc descriptions
       //NB: I have to add the boardID => used to identify the directory (or the single FileName) contained
@@ -57,8 +56,14 @@ var getEntryPoint = function(req, res) {
 
 var getPlanOnlyBoard = function(req, res){
   var boardID_required = req.params.boardID;
-  algorithms.firstUseCase(boardID_required);
-  res.send({success:true});
+  for(var i=0; i<boards.length; i++){
+    if(boards[i].ID == boardID_required){
+      algorithms.firstUseCase(boards[i]);
+      res.send({success:true});
+      return;
+    }
+  }
+  res.send({success:false});
 }
 
 
