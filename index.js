@@ -58,7 +58,7 @@ var getPlanOnlyBoard = function(req, res){
   var boardID_required = req.params.boardID;
   for(var i=0; i<boards.length; i++){
     if(boards[i].ID == boardID_required){
-      algorithms.firstUseCase(boards[i]);
+      algorithms.runAlgorithm_OnlyBoard(boards[i]);
       res.send({success:true});
       return;
     }
