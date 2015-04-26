@@ -1,0 +1,5 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+
+vocab:state a bonsai:SwitchAction;
+vocab:hasValue 1.

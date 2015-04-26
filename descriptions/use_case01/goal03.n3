@@ -23,10 +23,10 @@
   ?actuator a vocab:Actuator.
 
   ?state a st:State;
-      log:includes { ?actuator vocab:hasSwitchingState vocab:on. }.
+      	log:includes { ?actuator vocab:hasSwitchingState vocab:state. }.
 
 }
 =>
 {
-  ?actuator vocab:hasSwitchingState vocab:on.
+  ?actuator vocab:hasSwitchingState vocab:state.
 }.

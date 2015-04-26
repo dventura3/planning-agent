@@ -29,11 +29,3 @@ vocab:SensorsPlantCollection rdfs:subClassOf vocab:Collection.
 vocab:ActuatorsCollection rdfs:subClassOf hydra:Collection.
 
 vocab:ActuatorsPlantCollection rdfs:subClassOf vocab:Collection.
-
-
-
-vocab:off a bonsai:SwitchAction;
-			vocab:hasValue "0".
-
-vocab:on a bonsai:SwitchAction;
-			vocab:hasValue "1".

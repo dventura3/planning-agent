@@ -43,7 +43,7 @@
 </actuators/2/> a vocab:IrrigationPump.
 
 { 
-</actuators/1/> vocab:hasSwitchingState vocab:off.
-</actuators/2/> vocab:hasSwitchingState vocab:off.
+</actuators/1/> vocab:hasSwitchingState _:state.
+</actuators/2/> vocab:hasSwitchingState _:state.
 } a st:State.
 
