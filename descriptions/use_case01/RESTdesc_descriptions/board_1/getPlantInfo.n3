@@ -5,6 +5,7 @@
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
 @prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
+@prefix st: <http://www.mystates.org/states#>.
 
 
 {
@@ -31,6 +32,7 @@
   ?actuators a vocab:ActuatorsPlantCollection;
           hydra:member ?oneActuator.
   ?oneActuator a vocab:Actuator.
+  { ?oneActuator vocab:hasSwitchingState ?switchingState. } a st:State.
 
   ?idealTemperature a dbpedia:Temperature;
           vocab:hasValue ?valT;

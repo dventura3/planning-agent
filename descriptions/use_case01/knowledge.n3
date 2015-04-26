@@ -20,7 +20,7 @@
 </plants/2/> a vocab:Plant;
 			vocab:hasAssociatedSensors [
 					a vocab:SensorsPlantCollection;
-					hydra:member </sensors/2/>
+					hydra:member </sensors/2/>, </sensors/3/>
 			];
 			vocab:hasAssociatedActuators [
 					a vocab:ActuatorsPlantCollection;
