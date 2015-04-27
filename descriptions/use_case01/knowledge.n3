@@ -4,46 +4,46 @@
 
 
 
-</plants/> a vocab:PlantsCollection.
+</plants> a vocab:PlantsCollection.
 
-</plants/1/> a vocab:Plant;
+</plants/1> a vocab:Plant;
 			vocab:hasAssociatedSensors [
 					a vocab:SensorsPlantCollection;
-					hydra:member </sensors/1/>
+					hydra:member </sensors/1>
 			];
 			vocab:hasAssociatedActuators [
 					a vocab:ActuatorsPlantCollection;
-					hydra:member </actuators/1/>
+					hydra:member </actuators/1>
 			].
 
 
-</plants/2/> a vocab:Plant;
+</plants/2> a vocab:Plant;
 			vocab:hasAssociatedSensors [
 					a vocab:SensorsPlantCollection;
-					hydra:member </sensors/2/>, </sensors/3/>
+					hydra:member </sensors/2>, </sensors/3>
 			];
 			vocab:hasAssociatedActuators [
 					a vocab:ActuatorsPlantCollection;
-					hydra:member </actuators/2/>
+					hydra:member </actuators/2>
 			].
 
 
-</sensors/> a vocab:SensorsCollection;
-					hydra:member </sensors/1/>, </sensors/2/>, </sensors/3/>.
+</sensors> a vocab:SensorsCollection;
+					hydra:member </sensors/1>, </sensors/2>, </sensors/3>.
 
-</sensors/1/> a vocab:TemperatureSensor.
-</sensors/2/> a vocab:MoistureSensor.
-</sensors/3/> a vocab:LightSensor.
+</sensors/1> a vocab:TemperatureSensor.
+</sensors/2> a vocab:MoistureSensor.
+</sensors/3> a vocab:LightSensor.
 
 
-</actuators/> a vocab:ActuatorsCollection;
-					hydra:member </actuators/1/>, </actuators/2/>.
+</actuators> a vocab:ActuatorsCollection;
+					hydra:member </actuators/1>, </actuators/2>.
 
-</actuators/1/> a vocab:IrrigationPump.
-</actuators/2/> a vocab:IrrigationPump.
+</actuators/1> a vocab:IrrigationPump.
+</actuators/2> a vocab:IrrigationPump.
 
 { 
-</actuators/1/> vocab:hasSwitchingState _:state.
-</actuators/2/> vocab:hasSwitchingState _:state.
+</actuators/1> vocab:hasSwitchingState _:state.
+</actuators/2> vocab:hasSwitchingState _:state.
 } a st:State.
 
