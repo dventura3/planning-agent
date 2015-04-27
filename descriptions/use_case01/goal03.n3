@@ -14,19 +14,16 @@
 # Goal: how to get the pump associated to one plant and set its value?
 
 {
-  ?onePlant a vocab:Plant;
-        vocab:hasAssociatedActuators ?actuatorsList.
+  </plants/1/> vocab:hasAssociatedActuators ?actuatorsList.
 
-  ?actuatorsList a vocab:ActuatorsPlantCollection;
-      	hydra:member ?actuator.
+  ?actuatorsList hydra:member ?actuator.
 
-  ?actuator a vocab:Actuator.
+  ?actuator a vocab:IrrigationPump.
 
   ?state a st:State;
       	log:includes { ?actuator vocab:hasSwitchingState vocab:state. }.
-
 }
 =>
 {
-  ?actuator vocab:hasSwitchingState vocab:state.
+  ?actuator a vocab:IrrigationPump.
 }.

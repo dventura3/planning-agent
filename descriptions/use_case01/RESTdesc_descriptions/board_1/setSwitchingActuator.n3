@@ -20,7 +20,7 @@
 {
   _:request http:methodName "PUT";
             http:requestURI ( ?actuator ?val);
-            http:resp [http:body ?newValue].                    #but I return success or failure
+            http:resp [http:body ?actuator].
 
   [ a st:StateTransition;
     st:typeOperation "replacement";

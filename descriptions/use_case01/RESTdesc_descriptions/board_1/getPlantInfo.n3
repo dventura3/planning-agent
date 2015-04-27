@@ -31,8 +31,8 @@
 
   ?actuators a vocab:ActuatorsPlantCollection;
           hydra:member ?oneActuator.
-  ?oneActuator a vocab:Actuator.
-  { ?oneActuator vocab:hasSwitchingState ?switchingState. } a st:State.
+  ?oneActuator a vocab:Actuator;
+          vocab:hasSwitchingState ?switchingState.
 
   ?idealTemperature a dbpedia:Temperature;
           vocab:hasValue ?valT;
