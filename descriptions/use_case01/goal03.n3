@@ -1,29 +1,16 @@
 @prefix vocab: <http://www.example.org/vocab#>.
-@prefix http: <http://www.w3.org/2011/http#>.
-@prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
-@prefix schema: <http://www.schema.org/>.
-@prefix iot: <https://iotdb.org/pub/iot#>.
-@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
 @prefix st: <http://www.mystates.org/states#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
-@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
-
-
-
-# Goal: how to get the pump associated to one plant and set its value?
 
 {
-  </plants/1/> vocab:hasAssociatedActuators ?actuatorsList.
-
-  ?actuatorsList hydra:member ?actuator.
-
-  ?actuator a vocab:IrrigationPump.
-
-  ?state a st:State;
-      	log:includes { ?actuator vocab:hasSwitchingState vocab:state. }.
+</plants/2> vocab:hasAssociatedActuators ?actuatorsList.
+?actuatorsList hydra:member ?actuator.
+?actuator a vocab:IrrigationPump.
+?state a st:State;
+log:includes { ?actuator vocab:hasSwitchingState vocab:state. }.
 }
 =>
 {
-  ?actuator a vocab:IrrigationPump.
+?actuator a vocab:IrrigationPump.
 }.
