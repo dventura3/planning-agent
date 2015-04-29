@@ -3,6 +3,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var algorithms_module = require('./lib/AlgorithmsManager');
 
+var http = require('http');
+
 
 /*--------------- Express configuration goes here: -------------------*/
 var app = express();
@@ -16,7 +18,7 @@ app.use(
     res.header('Access-Control-Allow-Headers','Content-Type, Authorization, Content-Length, X-Requested-With');
 
     if('OPTIONS' == req.method){
-        res.send(200);
+        res.sendStatus(200);
     }
     else
         next();
@@ -50,7 +52,6 @@ app.listen(port, host, function() {
 /*--------------- HTTP Calls -------------------*/
 
 var getEntryPoint = function(req, res) {
-  console.log("EntryPoint");
   res.send({success:true});
 }
 
@@ -66,6 +67,29 @@ var getPlanOnlyBoard = function(req, res){
   res.send({success:false});
 }
 
+var getDescription = function(req, res){
+  var options = {
+    host: "127.0.0.1",
+    port: 3300,
+    path: "/",
+    method: 'OPTIONS'
+  };
+
+  //put data
+  var req = http.request(options, function(resp){
+    resp.on('data', function(chunk){
+      //data = JSON.parse(chunk);
+      console.log("DATA: " + chunk);
+      res.send({success:true});
+    });
+    resp.on('end', function(out){
+      //nothing to do
+    });
+  });
+  req.end();
+}
+
 
 app.get("/", getEntryPoint);
 app.get("/planOnlyBoard/:boardID", getPlanOnlyBoard);
+app.get("/getDescription", getDescription);
