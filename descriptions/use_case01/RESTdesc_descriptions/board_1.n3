@@ -1,0 +1,147 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
+
+
+{
+  ?actuator a vocab:Actuator.
+
+  ?state a st:State;
+      log:includes { ?actuator vocab:hasSwitchingState ?oldValue. }.
+
+  ?newValue a bonsai:SwitchAction;
+      vocab:hasValue ?val.
+}
+=>
+{
+  _:request http:methodName "PUT";
+            http:requestURI ( ?actuator ?val);
+            http:resp [http:body ?actuator].
+
+  [ a st:StateTransition;
+    st:typeOperation "replacement";
+    st:oldComponent { ?actuator vocab:hasSwitchingState ?oldValue. };
+    st:newComponent { ?actuator vocab:hasSwitchingState ?newValue. };
+    st:originalState ?state
+  ].
+}.
+
+
+{
+  ?sensor a vocab:Sensor.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?sensor;
+            http:resp [ http:body ?sensor ].
+
+  ?sensor iot:name ?name;
+          iot:description ?desc;
+          vocab:madeObservation ?obs.
+  ?obs vocab:hasTimestamp ?timestamp;
+       vocab:outputObservation ?result.
+}.
+
+
+{
+  ?actuator a vocab:Actuator.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?actuator;
+            http:resp [http:body ?actuator].
+
+  ?actuator iot:name ?name;
+        iot:description ?desc;
+        vocab:hasSwitchingState ?value.
+}.
+
+
+{
+  ?actuatorsList a vocab:ActuatorsCollection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?actuatorsList;
+            http:resp [ http:body ?actuatorsList ].
+
+  ?actuatorsList hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator.
+}.
+
+
+{
+  ?plant a vocab:Plant.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?plant;
+            http:resp [ http:body ?plant ].
+
+  ?plant  schema:name ?name;
+          schema:description ?desc;
+          vocab:hasAssociatedSensors ?sensors;
+          vocab:hasAssociatedActuators ?actuators;
+          vocab:hasIdealTemperature ?idealTemperature;
+          vocab:hasIdealMoisture ?idealMoisture;
+          vocab:hasIdealLight ?idealLight.
+
+  ?sensors  a vocab:SensorsPlantCollection;
+          hydra:member ?oneSensor.
+  ?oneSensor a vocab:Sensor.
+
+  ?actuators a vocab:ActuatorsPlantCollection;
+          hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator;
+          vocab:hasSwitchingState ?switchingState.
+
+  ?idealTemperature a dbpedia:Temperature;
+          vocab:hasValue ?valT;
+          iot:unit iot-unit:temperature.si.celsius.
+
+  ?idealMoisture a dbpedia:Moisture;
+          vocab:hasValue ?valM.
+
+  ?idealLight a dbpedia:Light;
+          vocab:hasValue ?valL.
+}.
+
+
+{
+  ?sensorsList a vocab:SensorsCollection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?sensorsList;
+            http:resp [ http:body ?sensorsList ].
+
+  ?sensorsList hydra:member ?oneSensor.
+  ?oneSensor a vocab:Sensor.
+}.
+
+
+{
+  ?plantsList a vocab:PlantsCollection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?plantsList;
+            http:resp [ http:body ?plantsList ].
+
+  ?plantsList hydra:member ?onePlant.  
+  ?onePlant a vocab:Plant.
+}.

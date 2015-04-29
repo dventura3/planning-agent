@@ -34,9 +34,8 @@ app.listen(port, host, function() {
       
       boards = JSON.parse(data).boards;
 
-      //TODO: Here should be done all the HTTP requestes to the boards to obtain the RESTdesc descriptions
-      //NB: I have to add the boardID => used to identify the directory (or the single FileName) contained
-      //the RESTdesc descriptions for each board!!!
+      for(var i=0; i<boards.length; i++)
+        getDescription(boards[i], ["use_case01"]);
 
       algorithms = new algorithms_module.AlgorithmsManager(__dirname);
 
@@ -47,6 +46,37 @@ app.listen(port, host, function() {
     console.log("Error in reading file for configuration");
   }
 });
+
+/*--------------- Helper Functions -------------------*/
+
+var getDescription = function(board, paths){
+  var options = {
+    host: board.host,
+    port: board.port,
+    path: "/",
+    method: 'OPTIONS'
+  };
+  var req = http.request(options, function(resp){
+    resp.on('data', function(chunk){
+      //save the RESTdesc descriptions for each use_case
+      paths.forEach(function(use_case_path){
+        var file_name = __dirname + "/descriptions/" + use_case_path + "/RESTdesc_descriptions/board_" + board.ID + ".n3";
+        fs.writeFile(file_name, chunk, function(err) {
+          if(err) {
+            console.log(err);
+          } else {
+            console.log("The RESTdesc description was saved!");
+          }
+        });
+      });
+    });
+    resp.on('end', function(out){
+      //nothing to do
+    });
+  });
+  req.end();
+}
+
 
 
 /*--------------- HTTP Calls -------------------*/
@@ -67,29 +97,6 @@ var getPlanOnlyBoard = function(req, res){
   res.send({success:false});
 }
 
-var getDescription = function(req, res){
-  var options = {
-    host: "127.0.0.1",
-    port: 3300,
-    path: "/",
-    method: 'OPTIONS'
-  };
-
-  //put data
-  var req = http.request(options, function(resp){
-    resp.on('data', function(chunk){
-      //data = JSON.parse(chunk);
-      console.log("DATA: " + chunk);
-      res.send({success:true});
-    });
-    resp.on('end', function(out){
-      //nothing to do
-    });
-  });
-  req.end();
-}
-
 
 app.get("/", getEntryPoint);
 app.get("/planOnlyBoard/:boardID", getPlanOnlyBoard);
-app.get("/getDescription", getDescription);
