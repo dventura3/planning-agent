@@ -56,33 +56,50 @@ var getDescription = function(board, paths){
     path: "/",
     method: 'OPTIONS'
   };
-  var req = http.request(options, function(resp){
-    resp.on('data', function(chunk){
-      //save the RESTdesc descriptions for each use_case
-      paths.forEach(function(use_case_path){
-        var file_name = __dirname + "/descriptions/" + use_case_path + "/RESTdesc_descriptions/board_" + board.ID + ".n3";
-        fs.writeFile(file_name, chunk, function(err) {
-          if(err) {
-            console.log(err);
-          } else {
-            console.log("The RESTdesc description was saved!");
-          }
+  try {
+    var req = http.request(options, function(resp){
+      resp.on('data', function(chunk){
+        //save the RESTdesc descriptions for each use_case
+        paths.forEach(function(use_case_path){
+          var file_name = __dirname + "/descriptions/" + use_case_path + "/RESTdesc_descriptions/board_" + board.ID + ".n3";
+          fs.writeFile(file_name, chunk, function(err) {
+            if(err) {
+              console.log(err);
+            } else {
+              console.log("The RESTdesc description was saved!");
+            }
+          });
         });
       });
+      resp.on('end', function(out){
+        //nothing to do
+      });
     });
-    resp.on('end', function(out){
-      //nothing to do
+    req.on('error', function (err) {
+      console.log("Board "+ board.host + ":" + board.port + " to get RESTdesc descriptions not response!");
     });
-  });
-  req.end();
+    req.end();
+  }
+  catch(e){
+     console.log(e);
+  };
 }
 
+
+var getStatusCode = function(sc){
+  var response = {
+    "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+    "@type": "Status",
+    "statusCode": sc
+  }
+  return response;
+}
 
 
 /*--------------- HTTP Calls -------------------*/
 
 var getEntryPoint = function(req, res) {
-  res.send({success:true});
+  res.send(getStatusCode(501));
 }
 
 var getPlanOnlyBoard = function(req, res){
@@ -90,11 +107,11 @@ var getPlanOnlyBoard = function(req, res){
   for(var i=0; i<boards.length; i++){
     if(boards[i].ID == boardID_required){
       algorithms.runAlgorithm_OnlyBoard(boards[i]);
-      res.send({success:true});
-      return;
+      res.send(getStatusCode(200));
+      return 0;
     }
   }
-  res.send({success:false});
+  res.send(getStatusCode(404));
 }
 
 
