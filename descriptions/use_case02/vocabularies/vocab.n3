@@ -1,0 +1,31 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+
+
+
+vocab:Sensor a rdfs:Class.
+vocab:TemperatureSensor rdfs:subClassOf vocab:Sensor.
+vocab:MoistureSensor rdfs:subClassOf vocab:Sensor.
+vocab:LightSensor rdfs:subClassOf vocab:Sensor.
+
+vocab:Observation a rdfs:Class.
+vocab:ResultedObservation a rdfs:Class.
+
+vocab:Actuator a rdfs:Class.
+vocab:IrrigationPump rdfs:subClassOf vocab:Actuator.
+
+vocab:Plant a rdfs:Class.
+
+
+
+vocab:PlantsCollection rdfs:subClassOf hydra:Collection.
+
+vocab:SensorsCollection rdfs:subClassOf hydra:Collection.
+
+vocab:SensorsPlantCollection rdfs:subClassOf vocab:Collection.
+
+vocab:ActuatorsCollection rdfs:subClassOf hydra:Collection.
+
+vocab:ActuatorsPlantCollection rdfs:subClassOf vocab:Collection.

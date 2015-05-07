@@ -1,0 +1,20 @@
+@prefix vocab: <http://www.example.org/weatherapi/vocab#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+
+
+#GET current weather for a specific location
+
+{
+  ?location a schema:GeoCoordinates;
+          schema:latitude ?lat;
+          schema:longitude ?lon.
+
+  ?wth a vocab:Weather;
+      vocab:relatedLocation ?location.
+}
+=>
+{
+  ?wth a vocab:Weather;
+}.

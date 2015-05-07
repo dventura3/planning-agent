@@ -1,0 +1,17 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix schema: <http://www.schema.org/>.
+
+#GET Board Geolocation
+
+{
+	?geo a schema:GeoCoordinates;
+			schema:latitude ?lat;
+      schema:longitude ?lon.
+}
+=>
+{
+	?geo a schema:GeoCoordinates.
+}.

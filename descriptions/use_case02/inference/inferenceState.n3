@@ -1,0 +1,87 @@
+#This file is based on the state ontology here: http://notes.restdesc.org/2013/states.n3
+
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
+
+
+st:State a rdfs:Class.
+
+st:StateTransition a rdfs:Class.
+
+
+
+st:oldComponent a rdf:Property;
+               rdfs:domain st:StateTransition;
+               rdfs:range log:Formula.
+
+st:newComponent a rdf:Property;
+               rdfs:domain st:StateTransition;
+               rdfs:range log:Formula.
+
+st:originalState a rdf:Property;
+               rdfs:domain st:StateTransition;
+               rdfs:range st:State.
+
+st:typeOperation a rdf:Property;
+               rdfs:domain st:StateTransition;
+               rdfs:range rdfs:Literal.
+
+
+
+#add
+{
+  ?transition  a st:StateTransition;
+               st:typeOperation "add";
+               st:newComponent ?newComponent;
+               st:originalState ?oldState.
+
+  #e.g. ({:a :b :c} {:d :e :f}) log:conjunction {:a :b :c. :d :e :f}.";
+  (?oldState ?newComponent) log:conjunction ?newState.
+}
+=>
+{
+  ?newState a st:State.
+}.
+
+
+
+
+#remove
+{
+  ?transition  a st:StateTransition;
+               st:typeOperation "remove";
+               st:oldComponent ?oldComponent;
+               st:originalState ?oldState.
+
+  #e.g. ({:a :b :c. :d :e :f} {:d :e :f}) e:graphDifference {:a :b :c}.";
+  (?oldState ?oldComponent) e:graphDifference ?newState.
+}
+=>
+{
+  ?newState a st:State.
+}.
+
+
+
+#replace (unione di add e remove)
+{
+  ?transition a st:StateTransition;
+              st:typeOperation "replacement";
+              st:oldComponent ?oldComponent;
+              st:newComponent ?newComponent;
+              st:originalState ?oldState.
+
+  #e.g. ({:a :b :c. :d :e :f} {:d :e :f}) e:graphDifference {:a :b :c}.";
+  (?oldState ?oldComponent) e:graphDifference ?stateWithoutOldComponent.
+
+  #e.g. ({:a :b :c} {:d :e :f}) log:conjunction {:a :b :c. :d :e :f}.";
+  (?stateWithoutOldComponent ?newComponent) log:conjunction ?newState.
+}
+=>
+{
+  ?newState a st:State.
+}.

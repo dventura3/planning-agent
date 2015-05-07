@@ -1,0 +1,7 @@
+@prefix schema: <http://www.schema.org/>.
+@prefix owl-time: <http://www.w3.org/TR/owl-time>.
+
+
+_:location a schema:GeoCoordinates;
+          schema:latitude "22";
+          schema:longitude "44".

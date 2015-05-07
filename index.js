@@ -35,7 +35,12 @@ app.listen(port, host, function() {
       boards = JSON.parse(data).boards;
 
       for(var i=0; i<boards.length; i++)
-        getDescription(boards[i], ["use_case01"]);
+        getDescription(boards[i], ["use_case01", "use_case02"], "board");
+
+      web_services = JSON.parse(data).web_services;
+
+      for(var i=0; i< web_services.length; i++)
+        getDescription(web_services[i], ["use_case02"], web_services[i].type);
 
       algorithms = new algorithms_module.AlgorithmsManager(__dirname);
 
@@ -49,10 +54,10 @@ app.listen(port, host, function() {
 
 /*--------------- Helper Functions -------------------*/
 
-var getDescription = function(board, paths){
+var getDescription = function(service, paths, type){
   var options = {
-    host: board.host,
-    port: board.port,
+    host: service.host,
+    port: service.port,
     path: "/",
     method: 'OPTIONS'
   };
@@ -61,7 +66,7 @@ var getDescription = function(board, paths){
       resp.on('data', function(chunk){
         //save the RESTdesc descriptions for each use_case
         paths.forEach(function(use_case_path){
-          var file_name = __dirname + "/descriptions/" + use_case_path + "/RESTdesc_descriptions/board_" + board.ID + ".n3";
+          var file_name = __dirname + "/descriptions/" + use_case_path + "/RESTdesc_descriptions/" + type + "_" + service.ID + ".n3";
           fs.writeFile(file_name, chunk, function(err) {
             if(err) {
               console.log(err);
@@ -76,7 +81,7 @@ var getDescription = function(board, paths){
       });
     });
     req.on('error', function (err) {
-      console.log("Board "+ board.host + ":" + board.port + " to get RESTdesc descriptions not response!");
+      console.log("Service "+ service.host + ":" + service.port + " to get RESTdesc descriptions not response!");
     });
     req.end();
   }
@@ -102,6 +107,19 @@ var getEntryPoint = function(req, res) {
   res.send(getStatusCode(501));
 }
 
+
+var runUseCaseSelected = function(req, res){
+  var boardID_required = req.params.boardID;
+  var useCaseID_required = req.params.useCaseID;
+  if(useCaseID_required == 1)
+    getPlanOnlyBoard(req, res);
+  else if(useCaseID_required == 2)
+    getPlanBoardAndCurrentWeather(req, res);
+  else
+    res.send(getStatusCode(501));
+}
+
+
 var getPlanOnlyBoard = function(req, res){
   var boardID_required = req.params.boardID;
   for(var i=0; i<boards.length; i++){
@@ -114,6 +132,13 @@ var getPlanOnlyBoard = function(req, res){
   res.send(getStatusCode(404));
 }
 
+var getPlanBoardAndCurrentWeather = function(req, res){
+  var boardID_required = req.params.boardID;
+}
+
+
 
 app.get("/", getEntryPoint);
-app.get("/planOnlyBoard/:boardID", getPlanOnlyBoard);
+//app.get("/planOnlyBoard/:boardID", getPlanOnlyBoard);
+
+app.get("/run/:useCaseID/:boardID", runUseCaseSelected);
