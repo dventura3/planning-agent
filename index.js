@@ -66,7 +66,10 @@ var getDescription = function(service, paths, type){
       resp.on('data', function(chunk){
         //save the RESTdesc descriptions for each use_case
         paths.forEach(function(use_case_path){
-          var file_name = __dirname + "/descriptions/" + use_case_path + "/RESTdesc_descriptions/" + type + "_" + service.ID + ".n3";
+          if(type == "board")
+            var file_name = __dirname + "/descriptions/" + use_case_path + "/boards/" + type + "_" + service.ID + ".n3";
+          else
+            var file_name = __dirname + "/descriptions/" + use_case_path + "/services/" + type + "_" + service.ID + ".n3";
           fs.writeFile(file_name, chunk, function(err) {
             if(err) {
               console.log(err);

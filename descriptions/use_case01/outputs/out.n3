@@ -1,5 +1,5 @@
 #Processed by Id: euler.yap 7962 2015-04-16 09:59:02Z josd
-#eye --traditional --quick-answere --tactic transaction --query goal03.n3 preference.n3 RESTdesc_descriptions/board_1.n3 vocabularies/vocab.n3 inference/inferenceInheritance.n3 inference/inferenceState.n3 inference/obsLight.n3 inference/obsMoisture.n3 inference/obsTemperature.n3
+#eye --traditional --quick-answere --tactic transaction --query goal03.n3 preference.n3 boards/board_1.n3 vocabularies/vocab.n3 inference/inferenceInheritance.n3 inference/inferenceState.n3 inference/obsLight.n3 inference/obsMoisture.n3 inference/obsTemperature.n3 services/empty.n3
 
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
@@ -9,6 +9,7 @@
 @prefix http: <http://www.w3.org/2011/http#>.
 @prefix iot: <https://iotdb.org/pub/iot#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#>.
 @prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix schema: <http://www.schema.org/>.
 @prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
@@ -31,38 +32,58 @@
   <#lemma3>
   <#lemma4>
   <#lemma5>
-  [ a r:Fact; r:gives {@forSome var:state_1. {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState vocab:state} log:includes {<file:///actuators/2> vocab:hasSwitchingState vocab:state}}]);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e8"]];
+  [ a r:Fact; r:gives {@forSome var:stateOC_1, var:state_1. {<file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState vocab:state.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1} log:includes {<file:///actuators/2> vocab:hasSwitchingState vocab:state}}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e13"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "file:///actuators/2"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState vocab:state}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo {<file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState vocab:state.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}];
   r:rule <#lemma6>.
 
-<#lemma2> a r:Extraction; r:gives {@forSome var:e8. <file:///plants/2> vocab:hasAssociatedActuators var:e8};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1.n3>].
+<#lemma2> a r:Extraction; r:gives {@forSome var:e13. <file:///plants/2> vocab:hasAssociatedActuators var:e13};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/boards/board_1.n3>].
 
-<#lemma3> a r:Extraction; r:gives {@forSome var:e8. var:e8 hydra:member <file:///actuators/2>};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1.n3>].
+<#lemma3> a r:Extraction; r:gives {@forSome var:e13. var:e13 hydra:member <file:///actuators/2>};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/boards/board_1.n3>].
 
 <#lemma4> a r:Extraction; r:gives {<file:///actuators/2> a vocab:IrrigationPump};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/boards/board_1.n3>].
 
-<#lemma5> a r:Inference; r:gives {@forSome var:state_1. {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState vocab:state} a st:State}; r:evidence (
+<#lemma5> a r:Inference; r:gives {@forSome var:stateOC_1, var:state_1. {<file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState vocab:state.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1} a st:State}; r:evidence (
   <#lemma7>
-  [ a r:Fact; r:gives {@forSome var:state_1. ({<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState var:state_1} {<file:///actuators/2> vocab:hasSwitchingState var:state_1}) e:graphDifference {<file:///actuators/1> vocab:hasSwitchingState var:state_1}}]
-  [ a r:Fact; r:gives {@forSome var:state_1. ({<file:///actuators/1> vocab:hasSwitchingState var:state_1} {<file:///actuators/2> vocab:hasSwitchingState vocab:state}) log:conjunction {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState vocab:state}}]);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk48"]];
+  [ a r:Fact; r:gives {@forSome var:state_1, var:stateOC_1. ({<file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1} {<file:///actuators/2> vocab:hasSwitchingState var:state_1}) e:graphDifference {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}}]
+  [ a r:Fact; r:gives {@forSome var:state_1, var:stateOC_1. ({<file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1} {<file:///actuators/2> vocab:hasSwitchingState vocab:state}) log:conjunction {<file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState vocab:state.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk5"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo {<file:///actuators/2> vocab:hasSwitchingState var:state_1}];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo {<file:///actuators/2> vocab:hasSwitchingState vocab:state}];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState var:state_1}];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo {<file:///actuators/1> vocab:hasSwitchingState var:state_1}];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState vocab:state}];
+    <file:///actuators/2> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo {<file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState vocab:state.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}];
   r:rule <#lemma8>.
 
 <#lemma6> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2. {<file:///plants/2> vocab:hasAssociatedActuators var:x0.
@@ -72,32 +93,38 @@
   var:x2 log:includes {var:x1 vocab:hasSwitchingState vocab:state}} => {var:x1 a vocab:IrrigationPump}};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/goal03.n3>].
 
-<#lemma7> a r:Inference; r:gives {@forSome var:state_1. _:sk46 http:methodName "PUT".
-  _:sk46 http:requestURI (<file:///actuators/2> 0).
-  _:sk46 http:resp _:sk47.
-  _:sk47 http:body <file:///actuators/2>.
-  _:sk48 a st:StateTransition.
-  _:sk48 st:typeOperation "replacement".
-  _:sk48 st:oldComponent {<file:///actuators/2> vocab:hasSwitchingState var:state_1}.
-  _:sk48 st:newComponent {<file:///actuators/2> vocab:hasSwitchingState vocab:state}.
-  _:sk48 st:originalState {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState var:state_1}}; r:evidence (
+<#lemma7> a r:Inference; r:gives {@forSome var:state_1, var:stateOC_1. _:sk3 http:methodName "PUT".
+  _:sk3 http:requestURI (<file:///actuators/2> 1).
+  _:sk3 http:resp _:sk4.
+  _:sk4 http:body <file:///actuators/2>.
+  _:sk5 a st:StateTransition.
+  _:sk5 st:typeOperation "replacement".
+  _:sk5 st:oldComponent {<file:///actuators/2> vocab:hasSwitchingState var:state_1}.
+  _:sk5 st:newComponent {<file:///actuators/2> vocab:hasSwitchingState vocab:state}.
+  _:sk5 st:originalState {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}}; r:evidence (
+  <#lemma4>
   <#lemma9>
+  [ a r:Fact; r:gives {@forSome var:state_1, var:stateOC_1. {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/2> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1} log:includes {<file:///actuators/2> vocab:hasSwitchingState var:state_1}}]
   <#lemma10>
-  [ a r:Fact; r:gives {@forSome var:state_1. {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState var:state_1} log:includes {<file:///actuators/2> vocab:hasSwitchingState var:state_1}}]
-  <#lemma11>
-  <#lemma12>);
+  <#lemma11>);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "file:///actuators/2"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-    <file:///actuators/2> vocab:hasSwitchingState var:state_1}];
+    <file:///actuators/2> vocab:hasSwitchingState var:state_1.
+    <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <file:///actuators/4> vocab:hasSwitchingState var:state_1}];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#state_1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ n3:uri "http://www.example.org/vocab#state"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo 0];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk46"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk47"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk48"]];
-  r:rule <#lemma13>.
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo 1];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk3"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk4"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk5"]];
+  r:rule <#lemma12>.
 
 <#lemma8> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5. {var:x0 a st:StateTransition.
   var:x0 st:typeOperation "replacement".
@@ -108,25 +135,19 @@
   (var:x4 var:x2) log:conjunction var:x5} => {var:x5 a st:State}};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/inference/inferenceState.n3>].
 
-<#lemma9> a r:Inference; r:gives {<file:///actuators/2> a vocab:Actuator}; r:evidence (
-  <#lemma14>
-  <#lemma4>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://www.example.org/vocab#IrrigationPump"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://www.example.org/vocab#Actuator"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "file:///actuators/2"]];
-  r:rule <#lemma15>.
+<#lemma9> a r:Extraction; r:gives {@forSome var:state_1, var:stateOC_1. {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
+  <file:///actuators/2> vocab:hasSwitchingState var:state_1.
+  <file:///actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+  <file:///actuators/4> vocab:hasSwitchingState var:state_1} a st:State};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/boards/board_1.n3>].
 
-<#lemma10> a r:Extraction; r:gives {@forSome var:state_1. {<file:///actuators/1> vocab:hasSwitchingState var:state_1.
-  <file:///actuators/2> vocab:hasSwitchingState var:state_1} a st:State};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1.n3>].
-
-<#lemma11> a r:Extraction; r:gives {vocab:state a bonsai:SwitchAction};
+<#lemma10> a r:Extraction; r:gives {vocab:state a bonsai:SwitchAction};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/preference.n3>].
 
-<#lemma12> a r:Extraction; r:gives {vocab:state vocab:hasValue 0};
+<#lemma11> a r:Extraction; r:gives {vocab:state vocab:hasValue 1};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/preference.n3>].
 
-<#lemma13> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4. @forSome var:x5, var:x6, var:x7. {var:x0 a vocab:Actuator.
+<#lemma12> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4. @forSome var:x5, var:x6, var:x7. {var:x0 a vocab:IrrigationPump.
   var:x1 a st:State.
   var:x1 log:includes {var:x0 vocab:hasSwitchingState var:x2}.
   var:x3 a bonsai:SwitchAction.
@@ -139,14 +160,7 @@
   var:x7 st:oldComponent {var:x0 vocab:hasSwitchingState var:x2}.
   var:x7 st:newComponent {var:x0 vocab:hasSwitchingState var:x3}.
   var:x7 st:originalState var:x1}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/RESTdesc_descriptions/board_1.n3>].
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/boards/board_1.n3>].
 
-<#lemma14> a r:Extraction; r:gives {vocab:IrrigationPump rdfs:subClassOf vocab:Actuator};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/vocabularies/vocab.n3>].
-
-<#lemma15> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2. {var:x0 rdfs:subClassOf var:x1.
-  var:x2 a var:x0} => {var:x2 a var:x1}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case01/inference/inferenceInheritance.n3>].
-
-#ENDS 1.089 [sec] TC=53 TP=237 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.157 [sec] TC=77 TP=382 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 

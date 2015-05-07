@@ -15,6 +15,8 @@ vocab:ResultedObservation a rdfs:Class.
 
 vocab:Actuator a rdfs:Class.
 vocab:IrrigationPump rdfs:subClassOf vocab:Actuator.
+vocab:PowerWindow rdfs:subClassOf vocab:Actuator.
+vocab:Heater rdfs:subClassOf vocab:Actuator.
 
 vocab:Plant a rdfs:Class.
 

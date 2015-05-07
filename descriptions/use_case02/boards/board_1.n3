@@ -1,38 +1,15 @@
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix http: <http://www.w3.org/2011/http#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 @prefix st: <http://www.mystates.org/states#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
-@prefix iot: <https://iotdb.org/pub/iot#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+@prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#>.
 @prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
 @prefix schema: <http://www.schema.org/>.
 @prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
-
-
-{
-  ?actuator a vocab:Actuator.
-
-  ?state a st:State;
-      log:includes { ?actuator vocab:hasSwitchingState ?oldValue. }.
-
-  ?newValue a bonsai:SwitchAction;
-      vocab:hasValue ?val.
-}
-=>
-{
-  _:request http:methodName "PUT";
-            http:requestURI ( ?actuator ?val);
-            http:resp [http:body ?actuator].
-
-  [ a st:StateTransition;
-    st:typeOperation "replacement";
-    st:oldComponent { ?actuator vocab:hasSwitchingState ?oldValue. };
-    st:newComponent { ?actuator vocab:hasSwitchingState ?newValue. };
-    st:originalState ?state
-  ].
-}.
 
 
 {
@@ -51,6 +28,78 @@
 
 
 {
+  ?actuator a vocab:IrrigationPump.
+
+  ?state a st:State;
+      log:includes { ?actuator vocab:hasSwitchingState ?oldValue. }.
+
+  ?newValue a bonsai:SwitchAction;
+      vocab:hasValue ?val.
+}
+=>
+{
+  _:request http:methodName "PUT";
+            http:requestURI (?actuator ?val);
+            http:resp [http:body ?actuator].
+
+  [ a st:StateTransition;
+    st:typeOperation "replacement";
+    st:oldComponent { ?actuator vocab:hasSwitchingState ?oldValue. };
+    st:newComponent { ?actuator vocab:hasSwitchingState ?newValue. };
+    st:originalState ?state
+  ].
+}.
+
+
+{
+  ?actuator a vocab:Heater.
+
+  ?state a st:State;
+      log:includes { ?actuator vocab:hasSwitchingState ?oldValue. }.
+
+  ?newValue a bonsai:SwitchAction;
+      vocab:hasValue ?val.
+}
+=>
+{
+  _:request http:methodName "PUT";
+            http:requestURI (?actuator ?val);
+            http:resp [http:body ?actuator].
+
+  [ a st:StateTransition;
+    st:typeOperation "replacement";
+    st:oldComponent { ?actuator vocab:hasSwitchingState ?oldValue. };
+    st:newComponent { ?actuator vocab:hasSwitchingState ?newValue. };
+    st:originalState ?state
+  ].
+}.
+
+
+{
+  ?actuator a vocab:PowerWindow.
+
+  ?state a st:State;
+      log:includes { ?actuator vocab:hasOpenCloseState ?oldValue. }.
+
+  ?newValue a dogont:OpenCloseState;
+      vocab:hasValue ?val.
+}
+=>
+{
+  _:request http:methodName "PUT";
+            http:requestURI (?actuator ?val);
+            http:resp [http:body ?actuator].
+
+  [ a st:StateTransition;
+    st:typeOperation "replacement";
+    st:oldComponent { ?actuator vocab:hasOpenCloseState ?oldValue. };
+    st:newComponent { ?actuator vocab:hasOpenCloseState ?newValue. };
+    st:originalState ?state
+  ].
+}.
+
+
+{
   ?sensor a vocab:Sensor.
 }
 =>
@@ -64,6 +113,20 @@
           vocab:madeObservation ?obs.
   ?obs vocab:hasTimestamp ?timestamp;
        vocab:outputObservation ?result.
+}.
+
+
+{
+  ?actuatorsList a vocab:ActuatorsCollection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?actuatorsList;
+            http:resp [ http:body ?actuatorsList ].
+
+  ?actuatorsList hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator.
 }.
 
 
@@ -104,28 +167,18 @@
 
 </actuators/1> a vocab:IrrigationPump.
 </actuators/2> a vocab:IrrigationPump.
+</actuators/3> a vocab:PowerWindow.
+</actuators/4> a vocab:Heater.
 
 { 
 </actuators/1> vocab:hasSwitchingState _:state.
 </actuators/2> vocab:hasSwitchingState _:state.
+</actuators/3> vocab:hasOpenCloseState _:stateOC.
+</actuators/4> vocab:hasSwitchingState _:state.
 } a st:State.
 
 
 </geo> a schema:GeoCoordinates.
-
-
-{
-  ?actuatorsList a vocab:ActuatorsCollection.
-}
-=>
-{
-  _:request http:methodName "GET";
-            http:requestURI ?actuatorsList;
-            http:resp [ http:body ?actuatorsList ].
-
-  ?actuatorsList hydra:member ?oneActuator.
-  ?oneActuator a vocab:Actuator.
-}.
 
 
 {

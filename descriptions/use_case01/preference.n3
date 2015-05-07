@@ -2,4 +2,4 @@
 @prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 
 vocab:state a bonsai:SwitchAction;
-vocab:hasValue 0.
+vocab:hasValue 1.
