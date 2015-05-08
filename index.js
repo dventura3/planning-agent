@@ -137,6 +137,14 @@ var getPlanOnlyBoard = function(req, res){
 
 var getPlanBoardAndCurrentWeather = function(req, res){
   var boardID_required = req.params.boardID;
+  for(var i=0; i<boards.length; i++){
+    if(boards[i].ID == boardID_required){
+      algorithms.runAlgorithm_BoardAndCurrentWeather(boards[i]);
+      res.send(getStatusCode(200));
+      return 0;
+    }
+  }
+  res.send(getStatusCode(404));
 }
 
 

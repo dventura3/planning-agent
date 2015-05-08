@@ -1,108 +1,273 @@
 #Processed by Id: euler.yap 7962 2015-04-16 09:59:02Z josd
-#eye --traditional --quick-answere --tactic transaction --query goal05.n3 preference.n3 boards/board_1.n3 vocabularies/vocab.n3 inference/detailsWeather.n3 inference/inferenceInheritance.n3 inference/inferenceState.n3 inference/obsLight.n3 inference/obsMoisture.n3 inference/obsTemperature.n3 services/weather_1.n3
+#eye --traditional --quick-answere --tactic transaction /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/boards/board_1.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/inference/detailsWeather.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/inference/inferenceInheritance.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/inference/inferenceState.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/inference/obsLight.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/inference/obsMoisture.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/inference/obsTemperature.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/vocabularies/vocab.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/services/weather_1.n3 --query /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/goal01.n3
 
-@prefix vocab: <http://www.example.org/weatherapi/vocab#>.
-@prefix schema: <http://www.schema.org/>.
-@prefix dbpedia: <http://dbpedia.org/resource/>.
-@prefix iot: <https://iotdb.org/pub/iot#>.
-@prefix owl-time: <http://www.w3.org/TR/owl-time>.
-@prefix ns1: <http://www.example.org/vocab#>.
+@prefix vocab: <http://www.example.org/vocab#>.
 @prefix http: <http://www.w3.org/2011/http#>.
-@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 @prefix st: <http://www.mystates.org/states#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 @prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix schema: <http://www.schema.org/>.
 @prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
+@prefix ns1: <http://www.example.org/weatherapi/vocab#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
+@prefix owl-time: <http://www.w3.org/TR/owl-time>.
 @prefix r: <http://www.w3.org/2000/10/swap/reason#>.
 @prefix var: <http://localhost/var#>.
 @prefix n3: <http://www.w3.org/2004/06/rei#>.
 
 [ a r:Proof, r:Conjunction;
   r:component <#lemma1>;
+  r:component <#lemma2>;
+  r:component <#lemma3>;
   r:gives {
-    <file:///weather/current> a vocab:Weather.
+    <http://127.0.0.1:3300/plants/1> vocab:hasIdealTemperature _:sk9.
+    <http://127.0.0.1:3300/plants/1> vocab:hasIdealMoisture _:sk10.
+    <http://127.0.0.1:3300/plants/1> vocab:hasIdealLight _:sk11.
+    <http://127.0.0.1:3300/plants/2> vocab:hasIdealTemperature _:sk24.
+    <http://127.0.0.1:3300/plants/2> vocab:hasIdealMoisture _:sk25.
+    <http://127.0.0.1:3300/plants/2> vocab:hasIdealLight _:sk26.
+    _:sk38 vocab:hasIdealTemperature _:sk122.
+    _:sk38 vocab:hasIdealMoisture _:sk123.
+    _:sk38 vocab:hasIdealLight _:sk124.
   }].
 
-<#lemma1> a r:Inference; r:gives {<file:///weather/current> a vocab:Weather}; r:evidence (
-  <#lemma2>
-  <#lemma3>
+<#lemma1> a r:Inference; r:gives {<http://127.0.0.1:3300/plants/1> vocab:hasIdealTemperature _:sk9.
+  <http://127.0.0.1:3300/plants/1> vocab:hasIdealMoisture _:sk10.
+  <http://127.0.0.1:3300/plants/1> vocab:hasIdealLight _:sk11}; r:evidence (
   <#lemma4>
   <#lemma5>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "file:///geo"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk41"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk42"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ n3:uri "file:///weather/current"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk9"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk10"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk11"]];
   r:rule <#lemma6>.
 
-<#lemma2> a r:Extraction; r:gives {<file:///geo> a <http://www.schema.org/GeoCoordinates>};
+<#lemma2> a r:Inference; r:gives {<http://127.0.0.1:3300/plants/2> vocab:hasIdealTemperature _:sk24.
+  <http://127.0.0.1:3300/plants/2> vocab:hasIdealMoisture _:sk25.
+  <http://127.0.0.1:3300/plants/2> vocab:hasIdealLight _:sk26}; r:evidence (
+  <#lemma7>
+  <#lemma8>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/2"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk24"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk25"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk26"]];
+  r:rule <#lemma6>.
+
+<#lemma3> a r:Inference; r:gives {_:sk38 vocab:hasIdealTemperature _:sk122.
+  _:sk38 vocab:hasIdealMoisture _:sk123.
+  _:sk38 vocab:hasIdealLight _:sk124}; r:evidence (
+  <#lemma9>
+  <#lemma10>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk38"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk122"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk123"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk124"]];
+  r:rule <#lemma6>.
+
+<#lemma4> a r:Extraction; r:gives {<http://127.0.0.1:3300/plants/1> a vocab:Plant};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/boards/board_1.n3>].
 
-<#lemma3> a r:Inference; r:gives {_:sk39 http:methodName "GET".
-  _:sk39 http:requestURI <file:///geo>.
-  _:sk39 http:resp _:sk40.
-  _:sk40 http:body <file:///geo>.
-  <file:///geo> <http://www.schema.org/latitude> _:sk41.
-  <file:///geo> <http://www.schema.org/longitude> _:sk42}; r:evidence (
-  <#lemma2>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "file:///geo"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk39"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk40"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk41"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk42"]];
-  r:rule <#lemma7>.
+<#lemma5> a r:Inference; r:gives {_:sk3 http:methodName "GET".
+  _:sk3 http:requestURI <http://127.0.0.1:3300/plants/1>.
+  _:sk3 http:resp _:sk4.
+  _:sk4 http:body <http://127.0.0.1:3300/plants/1>.
+  <http://127.0.0.1:3300/plants/1> <http://www.schema.org/name> _:sk5.
+  <http://127.0.0.1:3300/plants/1> <http://www.schema.org/description> _:sk6.
+  <http://127.0.0.1:3300/plants/1> vocab:hasAssociatedSensors _:sk7.
+  <http://127.0.0.1:3300/plants/1> vocab:hasAssociatedActuators _:sk8.
+  <http://127.0.0.1:3300/plants/1> vocab:hasIdealTemperature _:sk9.
+  <http://127.0.0.1:3300/plants/1> vocab:hasIdealMoisture _:sk10.
+  <http://127.0.0.1:3300/plants/1> vocab:hasIdealLight _:sk11.
+  _:sk7 a vocab:SensorsPlantCollection.
+  _:sk7 hydra:member _:sk12.
+  _:sk12 a vocab:Sensor.
+  _:sk8 a vocab:ActuatorsPlantCollection.
+  _:sk8 hydra:member _:sk13.
+  _:sk13 a vocab:Actuator.
+  _:sk13 vocab:hasSwitchingState _:sk14.
+  _:sk9 a <http://dbpedia.org/resource/Temperature>.
+  _:sk9 vocab:hasValue _:sk15.
+  _:sk9 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
+  _:sk10 a <http://dbpedia.org/resource/Moisture>.
+  _:sk10 vocab:hasValue _:sk16.
+  _:sk11 a <http://dbpedia.org/resource/Light>.
+  _:sk11 vocab:hasValue _:sk17}; r:evidence (
+  <#lemma4>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk3"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk4"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk5"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk6"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk7"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk8"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk9"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk10"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x9"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk11"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x10"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk12"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x11"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk13"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x12"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk14"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x13"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk15"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x14"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk16"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x15"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk17"]];
+  r:rule <#lemma11>.
 
-<#lemma4> a r:Extraction; r:gives {<file:///weather/current> a vocab:Weather};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/services/weather_1.n3>].
+<#lemma6> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3. {var:x0 a vocab:Plant.
+  var:x0 vocab:hasIdealTemperature var:x1.
+  var:x0 vocab:hasIdealMoisture var:x2.
+  var:x0 vocab:hasIdealLight var:x3} => {var:x0 vocab:hasIdealTemperature var:x1.
+  var:x0 vocab:hasIdealMoisture var:x2.
+  var:x0 vocab:hasIdealLight var:x3}};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/goal01.n3>].
 
-<#lemma5> a r:Inference; r:gives {_:sk43 http:methodName "GET".
-  _:sk43 http:requestURI (<file:///weather/current> "?lat=" _:sk41 "&lon=" _:sk42).
-  _:sk43 http:resp _:sk44.
-  _:sk44 http:body <file:///weather/current>.
-  <file:///weather/current> vocab:relatedLocation <file:///geo>.
-  <file:///weather/current> vocab:hasTimestamp _:sk45}; r:evidence (
-  <#lemma4>
-  <#lemma2>
-  <#lemma3>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "file:///weather/current"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "file:///geo"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk41"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk42"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk43"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk44"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk45"]];
-  r:rule <#lemma8>.
+<#lemma7> a r:Extraction; r:gives {<http://127.0.0.1:3300/plants/2> a vocab:Plant};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/boards/board_1.n3>].
 
-<#lemma6> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3. {var:x0 a <http://www.schema.org/GeoCoordinates>.
-  var:x0 <http://www.schema.org/latitude> var:x1.
-  var:x0 <http://www.schema.org/longitude> var:x2.
-  var:x3 a vocab:Weather.
-  var:x3 vocab:relatedLocation var:x0} => {var:x3 a vocab:Weather}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/goal05.n3>].
+<#lemma8> a r:Inference; r:gives {_:sk18 http:methodName "GET".
+  _:sk18 http:requestURI <http://127.0.0.1:3300/plants/2>.
+  _:sk18 http:resp _:sk19.
+  _:sk19 http:body <http://127.0.0.1:3300/plants/2>.
+  <http://127.0.0.1:3300/plants/2> <http://www.schema.org/name> _:sk20.
+  <http://127.0.0.1:3300/plants/2> <http://www.schema.org/description> _:sk21.
+  <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedSensors _:sk22.
+  <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedActuators _:sk23.
+  <http://127.0.0.1:3300/plants/2> vocab:hasIdealTemperature _:sk24.
+  <http://127.0.0.1:3300/plants/2> vocab:hasIdealMoisture _:sk25.
+  <http://127.0.0.1:3300/plants/2> vocab:hasIdealLight _:sk26.
+  _:sk22 a vocab:SensorsPlantCollection.
+  _:sk22 hydra:member _:sk27.
+  _:sk27 a vocab:Sensor.
+  _:sk23 a vocab:ActuatorsPlantCollection.
+  _:sk23 hydra:member _:sk28.
+  _:sk28 a vocab:Actuator.
+  _:sk28 vocab:hasSwitchingState _:sk29.
+  _:sk24 a <http://dbpedia.org/resource/Temperature>.
+  _:sk24 vocab:hasValue _:sk30.
+  _:sk24 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
+  _:sk25 a <http://dbpedia.org/resource/Moisture>.
+  _:sk25 vocab:hasValue _:sk31.
+  _:sk26 a <http://dbpedia.org/resource/Light>.
+  _:sk26 vocab:hasValue _:sk32}; r:evidence (
+  <#lemma7>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/2"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk18"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk19"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk20"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk21"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk22"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk23"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk24"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk25"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x9"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk26"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x10"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk27"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x11"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk28"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x12"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk29"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x13"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk30"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x14"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk31"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x15"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk32"]];
+  r:rule <#lemma11>.
 
-<#lemma7> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4. {var:x0 a <http://www.schema.org/GeoCoordinates>} => {var:x1 http:methodName "GET".
+<#lemma9> a r:Inference; r:gives {_:sk36 http:methodName "GET".
+  _:sk36 http:requestURI <http://127.0.0.1:3300/plants>.
+  _:sk36 http:resp _:sk37.
+  _:sk37 http:body <http://127.0.0.1:3300/plants>.
+  <http://127.0.0.1:3300/plants> hydra:member _:sk38.
+  _:sk38 a vocab:Plant}; r:evidence (
+  <#lemma12>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk36"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk37"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk38"]];
+  r:rule <#lemma13>.
+
+<#lemma10> a r:Inference; r:gives {_:sk116 http:methodName "GET".
+  _:sk116 http:requestURI _:sk38.
+  _:sk116 http:resp _:sk117.
+  _:sk117 http:body _:sk38.
+  _:sk38 <http://www.schema.org/name> _:sk118.
+  _:sk38 <http://www.schema.org/description> _:sk119.
+  _:sk38 vocab:hasAssociatedSensors _:sk120.
+  _:sk38 vocab:hasAssociatedActuators _:sk121.
+  _:sk38 vocab:hasIdealTemperature _:sk122.
+  _:sk38 vocab:hasIdealMoisture _:sk123.
+  _:sk38 vocab:hasIdealLight _:sk124.
+  _:sk120 a vocab:SensorsPlantCollection.
+  _:sk120 hydra:member _:sk125.
+  _:sk125 a vocab:Sensor.
+  _:sk121 a vocab:ActuatorsPlantCollection.
+  _:sk121 hydra:member _:sk126.
+  _:sk126 a vocab:Actuator.
+  _:sk126 vocab:hasSwitchingState _:sk127.
+  _:sk122 a <http://dbpedia.org/resource/Temperature>.
+  _:sk122 vocab:hasValue _:sk128.
+  _:sk122 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
+  _:sk123 a <http://dbpedia.org/resource/Moisture>.
+  _:sk123 vocab:hasValue _:sk129.
+  _:sk124 a <http://dbpedia.org/resource/Light>.
+  _:sk124 vocab:hasValue _:sk130}; r:evidence (
+  <#lemma9>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk38"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk116"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk117"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk118"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk119"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk120"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk121"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk122"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk123"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x9"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk124"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x10"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk125"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x11"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk126"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x12"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk127"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x13"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk128"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x14"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk129"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x15"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk130"]];
+  r:rule <#lemma11>.
+
+<#lemma11> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8, var:x9, var:x10, var:x11, var:x12, var:x13, var:x14, var:x15. {var:x0 a vocab:Plant} => {var:x1 http:methodName "GET".
   var:x1 http:requestURI var:x0.
   var:x1 http:resp var:x2.
   var:x2 http:body var:x0.
-  var:x0 <http://www.schema.org/latitude> var:x3.
-  var:x0 <http://www.schema.org/longitude> var:x4}};
+  var:x0 <http://www.schema.org/name> var:x3.
+  var:x0 <http://www.schema.org/description> var:x4.
+  var:x0 vocab:hasAssociatedSensors var:x5.
+  var:x0 vocab:hasAssociatedActuators var:x6.
+  var:x0 vocab:hasIdealTemperature var:x7.
+  var:x0 vocab:hasIdealMoisture var:x8.
+  var:x0 vocab:hasIdealLight var:x9.
+  var:x5 a vocab:SensorsPlantCollection.
+  var:x5 hydra:member var:x10.
+  var:x10 a vocab:Sensor.
+  var:x6 a vocab:ActuatorsPlantCollection.
+  var:x6 hydra:member var:x11.
+  var:x11 a vocab:Actuator.
+  var:x11 vocab:hasSwitchingState var:x12.
+  var:x7 a <http://dbpedia.org/resource/Temperature>.
+  var:x7 vocab:hasValue var:x13.
+  var:x7 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
+  var:x8 a <http://dbpedia.org/resource/Moisture>.
+  var:x8 vocab:hasValue var:x14.
+  var:x9 a <http://dbpedia.org/resource/Light>.
+  var:x9 vocab:hasValue var:x15}};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/boards/board_1.n3>].
 
-<#lemma8> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3. @forSome var:x4, var:x5, var:x6. {var:x0 a vocab:Weather.
-  var:x1 a <http://www.schema.org/GeoCoordinates>.
-  var:x1 <http://www.schema.org/latitude> var:x2.
-  var:x1 <http://www.schema.org/longitude> var:x3} => {var:x4 http:methodName "GET".
-  var:x4 http:requestURI (var:x0 "?lat=" var:x2 "&lon=" var:x3).
-  var:x4 http:resp var:x5.
-  var:x5 http:body var:x0.
-  var:x0 vocab:relatedLocation var:x1.
-  var:x0 vocab:hasTimestamp var:x6}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/services/weather_1.n3>].
+<#lemma12> a r:Extraction; r:gives {<http://127.0.0.1:3300/plants> a vocab:PlantsCollection};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/boards/board_1.n3>].
 
-#ENDS 0.141 [sec] TC=48 TP=167 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+<#lemma13> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3. {var:x0 a vocab:PlantsCollection} => {var:x1 http:methodName "GET".
+  var:x1 http:requestURI var:x0.
+  var:x1 http:resp var:x2.
+  var:x2 http:body var:x0.
+  var:x0 hydra:member var:x3.
+  var:x3 a vocab:Plant}};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/boards/board_1.n3>].
+
+#ENDS 0.133 [sec] TC=50 TP=175 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 

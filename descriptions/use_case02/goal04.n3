@@ -1,17 +1,20 @@
-@prefix vocab: <http://www.example.org/vocab#>.
-@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
-@prefix st: <http://www.mystates.org/states#>.
-@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix vocab: <http://www.example.org/weatherapi/vocab#>.
 @prefix schema: <http://www.schema.org/>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
 
-#GET Board Geolocation
+
+#GET current weather for a specific location
 
 {
-	?geo a schema:GeoCoordinates;
-			schema:latitude ?lat;
-      schema:longitude ?lon.
+  ?location a schema:GeoCoordinates;
+          schema:latitude ?lat;
+          schema:longitude ?lon.
+
+  ?wth a vocab:Weather;
+      vocab:relatedLocation ?location.
 }
 =>
 {
-	?geo a schema:GeoCoordinates.
+  ?wth a vocab:Weather;
 }.

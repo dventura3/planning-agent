@@ -1,30 +1,15 @@
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix http: <http://www.w3.org/2011/http#>.
-@prefix iot: <https://iotdb.org/pub/iot#>.
-@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 @prefix st: <http://www.mystates.org/states#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 @prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#>.
 @prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix hydra: <http://www.w3.org/ns/hydra/core#>.
 @prefix schema: <http://www.schema.org/>.
 @prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
-
-
-{
-  ?actuator a vocab:Actuator.
-}
-=>
-{
-  _:request http:methodName "GET";
-            http:requestURI ?actuator;
-            http:resp [http:body ?actuator].
-
-  ?actuator iot:name ?name;
-        iot:description ?desc;
-        vocab:hasSwitchingState ?value.
-}.
 
 
 {
@@ -100,6 +85,21 @@
 
 
 {
+  ?actuator a vocab:Actuator.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?actuator;
+            http:resp [http:body ?actuator].
+
+  ?actuator iot:name ?name;
+        iot:description ?desc.
+        #vocab:hasSwitchingState ?value.
+}.
+
+
+{
   ?sensor a vocab:Sensor.
 }
 =>
@@ -130,55 +130,55 @@
 }.
 
 
-</plants> a vocab:PlantsCollection.
+<http://127.0.0.1:3300/plants> a vocab:PlantsCollection.
 
-</plants/1> a vocab:Plant;
+<http://127.0.0.1:3300/plants/1> a vocab:Plant;
 			vocab:hasAssociatedSensors [
 					a vocab:SensorsPlantCollection;
-					hydra:member </sensors/1>
+					hydra:member <http://127.0.0.1:3300/sensors/1>, <http://127.0.0.1:3300/sensors/2>
 			];
 			vocab:hasAssociatedActuators [
 					a vocab:ActuatorsPlantCollection;
-					hydra:member </actuators/1>
+					hydra:member <http://127.0.0.1:3300/actuators/1>
 			].
 
 
-</plants/2> a vocab:Plant;
+<http://127.0.0.1:3300/plants/2> a vocab:Plant;
 			vocab:hasAssociatedSensors [
 					a vocab:SensorsPlantCollection;
-					hydra:member </sensors/2>, </sensors/3>
+					hydra:member <http://127.0.0.1:3300/sensors/2>, <http://127.0.0.1:3300/sensors/3>
 			];
 			vocab:hasAssociatedActuators [
 					a vocab:ActuatorsPlantCollection;
-					hydra:member </actuators/2>
+					hydra:member <http://127.0.0.1:3300/actuators/2>, <http://127.0.0.1:3300/actuators/3>, <http://127.0.0.1:3300/actuators/4>
 			].
 
 
-</sensors> a vocab:SensorsCollection;
-					hydra:member </sensors/1>, </sensors/2>, </sensors/3>.
+<http://127.0.0.1:3300/sensors> a vocab:SensorsCollection;
+					hydra:member <http://127.0.0.1:3300/sensors/1>, <http://127.0.0.1:3300/sensors/2>, <http://127.0.0.1:3300/sensors/3>.
 
-</sensors/1> a vocab:TemperatureSensor.
-</sensors/2> a vocab:MoistureSensor.
-</sensors/3> a vocab:LightSensor.
+<http://127.0.0.1:3300/sensors/1> a vocab:TemperatureSensor.
+<http://127.0.0.1:3300/sensors/2> a vocab:MoistureSensor.
+<http://127.0.0.1:3300/sensors/3> a vocab:LightSensor.
 
 
-</actuators> a vocab:ActuatorsCollection;
-					hydra:member </actuators/1>, </actuators/2>.
+<http://127.0.0.1:3300/actuators> a vocab:ActuatorsCollection;
+					hydra:member <http://127.0.0.1:3300/actuators/1>, <http://127.0.0.1:3300/actuators/2>, <http://127.0.0.1:3300/actuators/3>, <http://127.0.0.1:3300/actuators/4>.
 
-</actuators/1> a vocab:IrrigationPump.
-</actuators/2> a vocab:IrrigationPump.
-</actuators/3> a vocab:PowerWindow.
-</actuators/4> a vocab:Heater.
+<http://127.0.0.1:3300/actuators/1> a vocab:IrrigationPump.
+<http://127.0.0.1:3300/actuators/2> a vocab:IrrigationPump.
+<http://127.0.0.1:3300/actuators/3> a vocab:PowerWindow.
+<http://127.0.0.1:3300/actuators/4> a vocab:Heater.
 
 { 
-</actuators/1> vocab:hasSwitchingState _:state.
-</actuators/2> vocab:hasSwitchingState _:state.
-</actuators/3> vocab:hasOpenCloseState _:stateOC.
-</actuators/4> vocab:hasSwitchingState _:state.
+<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState _:state.
+<http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState _:state.
+<http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState _:stateOC.
+<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState _:state.
 } a st:State.
 
 
-</geo> a schema:GeoCoordinates.
+<http://127.0.0.1:3300/geo> a schema:GeoCoordinates.
 
 
 {

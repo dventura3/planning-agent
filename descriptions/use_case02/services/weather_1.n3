@@ -79,8 +79,8 @@
 }.
 
 
-</weather/forecast/hours> a vocab:HourlyForecastWeatherCollection.
+<http://127.0.0.1:3302/weather/forecast/hours> a vocab:HourlyForecastWeatherCollection.
 
-</weather/forecast/days> a vocab:DailyForecastWeatherCollection.
+<http://127.0.0.1:3302/weather/forecast/days> a vocab:DailyForecastWeatherCollection.
 
-</weather/current> a vocab:Weather.
+<http://127.0.0.1:3302/weather/current> a vocab:Weather.
