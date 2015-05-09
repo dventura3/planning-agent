@@ -1,0 +1,24 @@
+@prefix vocab: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
+
+
+# Goal: how to get the sensors associated to one plant and their values? - in other words: Give me the real and currently observations.
+
+{
+  ?onePlant a vocab:Plant;
+      vocab:hasAssociatedActuators ?actuatorsList.
+
+  ?actuatorsList a vocab:ActuatorsPlantCollection;
+      hydra:member ?actuator.
+
+  ?actuator a vocab:Actuator.
+}
+=>
+{
+  ?actuator a vocab:Actuator.
+}.
