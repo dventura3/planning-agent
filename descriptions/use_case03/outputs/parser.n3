@@ -27,92 +27,19 @@
 @prefix c: <urn:composition#>.
 @prefix ns2: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/parser/proof.n3#>.
 
-p:lemma14 a c:ServiceCall.
-p:lemma24 a c:ServiceCall.
-p:lemma25 a c:ServiceCall.
-p:lemma26 a c:ServiceCall.
-p:lemma26 c:hasDependency p:lemma25.
-p:lemma14 c:details {_:sk3_1 http:methodName "GET".
-  _:sk3_1 http:requestURI <http://127.0.0.1:3300/plants/1>.
-  _:sk3_1 http:resp _:sk4_1.
-  _:sk4_1 http:body <http://127.0.0.1:3300/plants/1>.
-  <http://127.0.0.1:3300/plants/1> <http://www.schema.org/name> _:sk5_1.
-  <http://127.0.0.1:3300/plants/1> <http://www.schema.org/description> _:sk6_1.
-  <http://127.0.0.1:3300/plants/1> vocab:hasAssociatedSensors _:sk7_1.
-  <http://127.0.0.1:3300/plants/1> vocab:hasAssociatedActuators _:sk8_1.
-  <http://127.0.0.1:3300/plants/1> vocab:hasIdealTemperature _:sk9_1.
-  <http://127.0.0.1:3300/plants/1> vocab:hasIdealMoisture _:sk10_1.
-  <http://127.0.0.1:3300/plants/1> vocab:hasIdealLight _:sk11_1.
-  _:sk7_1 a vocab:SensorsPlantCollection.
-  _:sk7_1 hydra:member _:sk12_1.
-  _:sk12_1 a vocab:Sensor.
-  _:sk8_1 a vocab:ActuatorsPlantCollection.
-  _:sk8_1 hydra:member _:sk13_3.
-  _:sk13_3 a vocab:Actuator.
-  _:sk13_3 vocab:hasSwitchingState _:sk14_1.
-  _:sk9_1 a <http://dbpedia.org/resource/Temperature>.
-  _:sk9_1 vocab:hasValue _:sk15_1.
-  _:sk9_1 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk10_1 a <http://dbpedia.org/resource/Moisture>.
-  _:sk10_1 vocab:hasValue _:sk16_1.
-  _:sk11_1 a <http://dbpedia.org/resource/Light>.
-  _:sk11_1 vocab:hasValue _:sk17_1}.
-p:lemma24 c:details {_:sk18_1 http:methodName "GET".
-  _:sk18_1 http:requestURI <http://127.0.0.1:3300/plants/2>.
-  _:sk18_1 http:resp _:sk19_1.
-  _:sk19_1 http:body <http://127.0.0.1:3300/plants/2>.
-  <http://127.0.0.1:3300/plants/2> <http://www.schema.org/name> _:sk20_1.
-  <http://127.0.0.1:3300/plants/2> <http://www.schema.org/description> _:sk21_1.
-  <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedSensors _:sk22_1.
-  <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedActuators _:sk23_1.
-  <http://127.0.0.1:3300/plants/2> vocab:hasIdealTemperature _:sk24_1.
-  <http://127.0.0.1:3300/plants/2> vocab:hasIdealMoisture _:sk25_1.
-  <http://127.0.0.1:3300/plants/2> vocab:hasIdealLight _:sk26_1.
-  _:sk22_1 a vocab:SensorsPlantCollection.
-  _:sk22_1 hydra:member _:sk27_1.
-  _:sk27_1 a vocab:Sensor.
-  _:sk23_1 a vocab:ActuatorsPlantCollection.
-  _:sk23_1 hydra:member _:sk28_3.
-  _:sk28_3 a vocab:Actuator.
-  _:sk28_3 vocab:hasSwitchingState _:sk29_1.
-  _:sk24_1 a <http://dbpedia.org/resource/Temperature>.
-  _:sk24_1 vocab:hasValue _:sk30_1.
-  _:sk24_1 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk25_1 a <http://dbpedia.org/resource/Moisture>.
-  _:sk25_1 vocab:hasValue _:sk31_1.
-  _:sk26_1 a <http://dbpedia.org/resource/Light>.
-  _:sk26_1 vocab:hasValue _:sk32_1}.
-p:lemma25 c:details {_:sk36_1 http:methodName "GET".
-  _:sk36_1 http:requestURI <http://127.0.0.1:3300/plants>.
-  _:sk36_1 http:resp _:sk37_1.
-  _:sk37_1 http:body <http://127.0.0.1:3300/plants>.
-  <http://127.0.0.1:3300/plants> hydra:member _:sk38_1.
-  _:sk38_1 a vocab:Plant}.
-p:lemma26 c:details {_:sk116_1 http:methodName "GET".
-  _:sk116_1 http:requestURI _:sk38_2.
-  _:sk116_1 http:resp _:sk117_1.
-  _:sk117_1 http:body _:sk38_2.
-  _:sk38_2 <http://www.schema.org/name> _:sk118_1.
-  _:sk38_2 <http://www.schema.org/description> _:sk119_1.
-  _:sk38_2 vocab:hasAssociatedSensors _:sk120_1.
-  _:sk38_2 vocab:hasAssociatedActuators _:sk121_1.
-  _:sk38_2 vocab:hasIdealTemperature _:sk122_1.
-  _:sk38_2 vocab:hasIdealMoisture _:sk123_1.
-  _:sk38_2 vocab:hasIdealLight _:sk124_1.
-  _:sk120_1 a vocab:SensorsPlantCollection.
-  _:sk120_1 hydra:member _:sk125_1.
-  _:sk125_1 a vocab:Sensor.
-  _:sk121_1 a vocab:ActuatorsPlantCollection.
-  _:sk121_1 hydra:member _:sk126_3.
-  _:sk126_3 a vocab:Actuator.
-  _:sk126_3 vocab:hasSwitchingState _:sk127_1.
-  _:sk122_1 a <http://dbpedia.org/resource/Temperature>.
-  _:sk122_1 vocab:hasValue _:sk128_1.
-  _:sk122_1 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk123_1 a <http://dbpedia.org/resource/Moisture>.
-  _:sk123_1 vocab:hasValue _:sk129_1.
-  _:sk124_1 a <http://dbpedia.org/resource/Light>.
-  _:sk124_1 vocab:hasValue _:sk130_1}.
+p:lemma7 a c:ServiceCall.
+p:lemma7 c:details {_:sk6_1 http:methodName "PUT".
+  _:sk6_1 http:requestURI (<http://127.0.0.1:3300/actuators/4> 1).
+  _:sk6_1 http:resp _:sk7_1.
+  _:sk7_1 http:body <http://127.0.0.1:3300/actuators/4>.
+  _:sk8_1 a st:StateTransition.
+  _:sk8_1 st:typeOperation "replacement".
+  _:sk8_1 st:oldComponent {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState _:qe11}.
+  _:sk8_1 st:newComponent {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}.
+  _:sk8_1 st:originalState {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState _:qe11.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState _:qe11.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState _:qe12.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState _:qe11}}.
 
-#ENDS 0.156 [sec] TC=18 TP=36 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.080 [sec] TC=4 TP=8 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 

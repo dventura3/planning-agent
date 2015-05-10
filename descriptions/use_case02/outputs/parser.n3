@@ -27,21 +27,19 @@
 @prefix c: <urn:composition#>.
 @prefix ns2: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/parser/proof.n3#>.
 
-p:lemma3 a c:ServiceCall.
-p:lemma5 a c:ServiceCall.
-p:lemma5 c:hasDependency p:lemma3.
-p:lemma3 c:details {_:sk39_1 http:methodName "GET".
-  _:sk39_1 http:requestURI <http://127.0.0.1:3300/geo>.
-  _:sk39_1 http:resp _:sk40_1.
-  _:sk40_1 http:body <http://127.0.0.1:3300/geo>.
-  <http://127.0.0.1:3300/geo> <http://www.schema.org/latitude> _:sk41_1.
-  <http://127.0.0.1:3300/geo> <http://www.schema.org/longitude> _:sk42_1}.
-p:lemma5 c:details {_:sk43_1 http:methodName "GET".
-  _:sk43_1 http:requestURI (<http://127.0.0.1:3302/weather/current> "?lat=" _:sk41_2 "&lon=" _:sk42_2).
-  _:sk43_1 http:resp _:sk44_1.
-  _:sk44_1 http:body <http://127.0.0.1:3302/weather/current>.
-  <http://127.0.0.1:3302/weather/current> ns1:relatedLocation <http://127.0.0.1:3300/geo>.
-  <http://127.0.0.1:3302/weather/current> ns1:hasTimestamp _:sk45_1}.
+p:lemma7 a c:ServiceCall.
+p:lemma7 c:details {_:sk6_1 http:methodName "PUT".
+  _:sk6_1 http:requestURI (<http://127.0.0.1:3300/actuators/4> 1).
+  _:sk6_1 http:resp _:sk7_1.
+  _:sk7_1 http:body <http://127.0.0.1:3300/actuators/4>.
+  _:sk8_1 a st:StateTransition.
+  _:sk8_1 st:typeOperation "replacement".
+  _:sk8_1 st:oldComponent {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState _:qe11}.
+  _:sk8_1 st:newComponent {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}.
+  _:sk8_1 st:originalState {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState _:qe11.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState _:qe11.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState _:qe12.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState _:qe11}}.
 
-#ENDS 0.068 [sec] TC=10 TP=20 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.071 [sec] TC=4 TP=8 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 

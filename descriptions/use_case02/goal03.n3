@@ -4,13 +4,13 @@
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
 
 {
-</plants/2> vocab:hasAssociatedActuators ?actuatorsList.
+<http://127.0.0.1:3300/plants/2> vocab:hasAssociatedActuators ?actuatorsList.
 ?actuatorsList hydra:member ?actuator.
-?actuator a vocab:IrrigationPump.
+?actuator a vocab:Heater.
 ?state a st:State;
 log:includes { ?actuator vocab:hasSwitchingState vocab:state. }.
 }
 =>
 {
-?actuator a vocab:IrrigationPump.
+?actuator a vocab:Heater.
 }.

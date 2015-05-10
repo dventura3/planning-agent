@@ -116,20 +116,6 @@
 }.
 
 
-{
-  ?actuatorsList a vocab:ActuatorsCollection.
-}
-=>
-{
-  _:request http:methodName "GET";
-            http:requestURI ?actuatorsList;
-            http:resp [ http:body ?actuatorsList ].
-
-  ?actuatorsList hydra:member ?oneActuator.
-  ?oneActuator a vocab:Actuator.
-}.
-
-
 <http://127.0.0.1:3300/plants> a vocab:PlantsCollection.
 
 <http://127.0.0.1:3300/plants/1> a vocab:Plant;
@@ -179,6 +165,20 @@
 
 
 <http://127.0.0.1:3300/geo> a schema:GeoCoordinates.
+
+
+{
+  ?actuatorsList a vocab:ActuatorsCollection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?actuatorsList;
+            http:resp [ http:body ?actuatorsList ].
+
+  ?actuatorsList hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator.
+}.
 
 
 {

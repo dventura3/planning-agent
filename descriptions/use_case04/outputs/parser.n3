@@ -1,5 +1,5 @@
 #Processed by Id: euler.yap 7962 2015-04-16 09:59:02Z josd
-#eye --traditional /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/outputs/out.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/parser/services.n3 --query /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/parser/composition.n3 --nope
+#eye --traditional /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/outputs/out.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/parser/services.n3 --query /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/parser/composition.n3 --nope
 
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix http: <http://www.w3.org/2011/http#>.
@@ -22,10 +22,10 @@
 @prefix r: <http://www.w3.org/2000/10/swap/reason#>.
 @prefix var: <http://localhost/var#>.
 @prefix n3: <http://www.w3.org/2004/06/rei#>.
-@prefix p: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/outputs/out.n3#>.
+@prefix p: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/outputs/out.n3#>.
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
 @prefix c: <urn:composition#>.
-@prefix ns2: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case02/parser/proof.n3#>.
+@prefix ns2: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/parser/proof.n3#>.
 
 p:lemma7 a c:ServiceCall.
 p:lemma7 c:details {_:sk6_1 http:methodName "PUT".
@@ -41,5 +41,5 @@ p:lemma7 c:details {_:sk6_1 http:methodName "PUT".
     <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState _:qe12.
     <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState _:qe11}}.
 
-#ENDS 0.074 [sec] TC=4 TP=8 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.078 [sec] TC=4 TP=8 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 

@@ -1,5 +1,5 @@
 #Processed by Id: euler.yap 7962 2015-04-16 09:59:02Z josd
-#eye --traditional --quick-answere --tactic transaction /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/detailsWeather.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/inferenceInheritance.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/inferenceState.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/obsLight.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/obsMoisture.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/obsTemperature.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/vocabularies/vocab.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/services/weather_1.n3 --query /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/goal05.n3
+#eye --traditional --quick-answere --tactic transaction /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/detailsWeather.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/inferenceInheritance.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/inferenceState.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/obsLight.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/obsMoisture.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/obsTemperature.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/vocabularies/vocab.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/services/weather_1.n3 /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/preference.n3 --query /Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/goal03.n3
 
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix http: <http://www.w3.org/2011/http#>.
@@ -25,366 +25,144 @@
 
 [ a r:Proof, r:Conjunction;
   r:component <#lemma1>;
-  r:component <#lemma2>;
-  r:component <#lemma3>;
-  r:component <#lemma4>;
-  r:component <#lemma5>;
-  r:component <#lemma6>;
-  r:component <#lemma7>;
   r:gives {
-    <http://127.0.0.1:3300/actuators/1> a vocab:Actuator.
-    _:sk13 a vocab:Actuator.
-    <http://127.0.0.1:3300/actuators/2> a vocab:Actuator.
-    <http://127.0.0.1:3300/actuators/3> a vocab:Actuator.
-    <http://127.0.0.1:3300/actuators/4> a vocab:Actuator.
-    _:sk28 a vocab:Actuator.
-    _:sk126 a vocab:Actuator.
+    <http://127.0.0.1:3300/actuators/4> a vocab:Heater.
   }].
 
-<#lemma1> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/1> a vocab:Actuator}; r:evidence (
-  <#lemma8>
+<#lemma1> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/4> a vocab:Heater}; r:evidence (
+  <#lemma2>
+  <#lemma3>
+  <#lemma4>
+  <#lemma5>
+  [ a r:Fact; r:gives {@forSome var:stateOC_1, var:state_1. {<http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state} log:includes {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e13"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/4"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo {<http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}];
+  r:rule <#lemma6>.
+
+<#lemma2> a r:Extraction; r:gives {@forSome var:e13. <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedActuators var:e13};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
+
+<#lemma3> a r:Extraction; r:gives {@forSome var:e13. var:e13 hydra:member <http://127.0.0.1:3300/actuators/4>};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
+
+<#lemma4> a r:Extraction; r:gives {<http://127.0.0.1:3300/actuators/4> a vocab:Heater};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
+
+<#lemma5> a r:Inference; r:gives {@forSome var:stateOC_1, var:state_1. {<http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state} a st:State}; r:evidence (
+  <#lemma7>
+  [ a r:Fact; r:gives {@forSome var:state_1, var:stateOC_1. ({<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1} {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1}) e:graphDifference {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1}}]
+  [ a r:Fact; r:gives {@forSome var:state_1, var:stateOC_1. ({<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1} {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}) log:conjunction {<http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk8"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo {<http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}];
+  r:rule <#lemma8>.
+
+<#lemma6> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2. {<http://127.0.0.1:3300/plants/2> vocab:hasAssociatedActuators var:x0.
+  var:x0 hydra:member var:x1.
+  var:x1 a vocab:Heater.
+  var:x2 a st:State.
+  var:x2 log:includes {var:x1 vocab:hasSwitchingState vocab:state}} => {var:x1 a vocab:Heater}};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/goal03.n3>].
+
+<#lemma7> a r:Inference; r:gives {@forSome var:state_1, var:stateOC_1. _:sk6 http:methodName "PUT".
+  _:sk6 http:requestURI (<http://127.0.0.1:3300/actuators/4> 1).
+  _:sk6 http:resp _:sk7.
+  _:sk7 http:body <http://127.0.0.1:3300/actuators/4>.
+  _:sk8 a st:StateTransition.
+  _:sk8 st:typeOperation "replacement".
+  _:sk8 st:oldComponent {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1}.
+  _:sk8 st:newComponent {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState vocab:state}.
+  _:sk8 st:originalState {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1}}; r:evidence (
+  <#lemma4>
   <#lemma9>
+  [ a r:Fact; r:gives {@forSome var:state_1, var:stateOC_1. {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1} log:includes {<http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1}}]
   <#lemma10>
-  <#lemma11>
-  <#lemma12>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e11"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/1"]];
-  r:rule <#lemma13>.
+  <#lemma11>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/4"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+    <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+    <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1}];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#state_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ n3:uri "http://www.example.org/vocab#state"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo 1];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk6"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk7"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk8"]];
+  r:rule <#lemma12>.
 
-<#lemma2> a r:Inference; r:gives {_:sk13 a vocab:Actuator}; r:evidence (
-  <#lemma8>
-  <#lemma14>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk8"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk13"]];
-  r:rule <#lemma13>.
+<#lemma8> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5. {var:x0 a st:StateTransition.
+  var:x0 st:typeOperation "replacement".
+  var:x0 st:oldComponent var:x1.
+  var:x0 st:newComponent var:x2.
+  var:x0 st:originalState var:x3.
+  (var:x3 var:x1) e:graphDifference var:x4.
+  (var:x4 var:x2) log:conjunction var:x5} => {var:x5 a st:State}};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/inferenceState.n3>].
 
-<#lemma3> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/2> a vocab:Actuator}; r:evidence (
-  <#lemma15>
-  <#lemma16>
-  <#lemma17>
-  <#lemma18>
-  <#lemma19>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/2"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e13"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/2"]];
-  r:rule <#lemma13>.
-
-<#lemma4> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/3> a vocab:Actuator}; r:evidence (
-  <#lemma15>
-  <#lemma16>
-  <#lemma17>
-  <#lemma20>
-  <#lemma21>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/2"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e13"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/3"]];
-  r:rule <#lemma13>.
-
-<#lemma5> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/4> a vocab:Actuator}; r:evidence (
-  <#lemma15>
-  <#lemma16>
-  <#lemma17>
-  <#lemma22>
-  <#lemma23>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/2"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e13"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/4"]];
-  r:rule <#lemma13>.
-
-<#lemma6> a r:Inference; r:gives {_:sk28 a vocab:Actuator}; r:evidence (
-  <#lemma15>
-  <#lemma24>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/2"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk23"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk28"]];
-  r:rule <#lemma13>.
-
-<#lemma7> a r:Inference; r:gives {_:sk126 a vocab:Actuator}; r:evidence (
-  <#lemma25>
-  <#lemma26>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk38"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk121"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk126"]];
-  r:rule <#lemma13>.
-
-<#lemma8> a r:Extraction; r:gives {<http://127.0.0.1:3300/plants/1> a vocab:Plant};
+<#lemma9> a r:Extraction; r:gives {@forSome var:state_1, var:stateOC_1. {<http://127.0.0.1:3300/actuators/1> vocab:hasSwitchingState var:state_1.
+  <http://127.0.0.1:3300/actuators/2> vocab:hasSwitchingState var:state_1.
+  <http://127.0.0.1:3300/actuators/3> vocab:hasOpenCloseState var:stateOC_1.
+  <http://127.0.0.1:3300/actuators/4> vocab:hasSwitchingState var:state_1} a st:State};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
 
-<#lemma9> a r:Extraction; r:gives {@forSome var:e11. <http://127.0.0.1:3300/plants/1> vocab:hasAssociatedActuators var:e11};
+<#lemma10> a r:Extraction; r:gives {vocab:state a bonsai:SwitchAction};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/preference.n3>].
+
+<#lemma11> a r:Extraction; r:gives {vocab:state vocab:hasValue 1};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/preference.n3>].
+
+<#lemma12> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4. @forSome var:x5, var:x6, var:x7. {var:x0 a vocab:Heater.
+  var:x1 a st:State.
+  var:x1 log:includes {var:x0 vocab:hasSwitchingState var:x2}.
+  var:x3 a bonsai:SwitchAction.
+  var:x3 vocab:hasValue var:x4} => {var:x5 http:methodName "PUT".
+  var:x5 http:requestURI (var:x0 var:x4).
+  var:x5 http:resp var:x6.
+  var:x6 http:body var:x0.
+  var:x7 a st:StateTransition.
+  var:x7 st:typeOperation "replacement".
+  var:x7 st:oldComponent {var:x0 vocab:hasSwitchingState var:x2}.
+  var:x7 st:newComponent {var:x0 vocab:hasSwitchingState var:x3}.
+  var:x7 st:originalState var:x1}};
   r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
 
-<#lemma10> a r:Extraction; r:gives {@forSome var:e11. var:e11 a vocab:ActuatorsPlantCollection};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma11> a r:Extraction; r:gives {@forSome var:e11. var:e11 hydra:member <http://127.0.0.1:3300/actuators/1>};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma12> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/1> a vocab:Actuator}; r:evidence (
-  <#lemma27>
-  <#lemma28>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://www.example.org/vocab#IrrigationPump"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://www.example.org/vocab#Actuator"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/1"]];
-  r:rule <#lemma29>.
-
-<#lemma13> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2. {var:x0 a vocab:Plant.
-  var:x0 vocab:hasAssociatedActuators var:x1.
-  var:x1 a vocab:ActuatorsPlantCollection.
-  var:x1 hydra:member var:x2.
-  var:x2 a vocab:Actuator} => {var:x2 a vocab:Actuator}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/goal05.n3>].
-
-<#lemma14> a r:Inference; r:gives {_:sk3 http:methodName "GET".
-  _:sk3 http:requestURI <http://127.0.0.1:3300/plants/1>.
-  _:sk3 http:resp _:sk4.
-  _:sk4 http:body <http://127.0.0.1:3300/plants/1>.
-  <http://127.0.0.1:3300/plants/1> <http://www.schema.org/name> _:sk5.
-  <http://127.0.0.1:3300/plants/1> <http://www.schema.org/description> _:sk6.
-  <http://127.0.0.1:3300/plants/1> vocab:hasAssociatedSensors _:sk7.
-  <http://127.0.0.1:3300/plants/1> vocab:hasAssociatedActuators _:sk8.
-  <http://127.0.0.1:3300/plants/1> vocab:hasIdealTemperature _:sk9.
-  <http://127.0.0.1:3300/plants/1> vocab:hasIdealMoisture _:sk10.
-  <http://127.0.0.1:3300/plants/1> vocab:hasIdealLight _:sk11.
-  _:sk7 a vocab:SensorsPlantCollection.
-  _:sk7 hydra:member _:sk12.
-  _:sk12 a vocab:Sensor.
-  _:sk8 a vocab:ActuatorsPlantCollection.
-  _:sk8 hydra:member _:sk13.
-  _:sk13 a vocab:Actuator.
-  _:sk13 vocab:hasSwitchingState _:sk14.
-  _:sk9 a <http://dbpedia.org/resource/Temperature>.
-  _:sk9 vocab:hasValue _:sk15.
-  _:sk9 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk10 a <http://dbpedia.org/resource/Moisture>.
-  _:sk10 vocab:hasValue _:sk16.
-  _:sk11 a <http://dbpedia.org/resource/Light>.
-  _:sk11 vocab:hasValue _:sk17}; r:evidence (
-  <#lemma8>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk3"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk4"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk5"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk6"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk7"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk8"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk9"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk10"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x9"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk11"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x10"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk12"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x11"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk13"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x12"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk14"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x13"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk15"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x14"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk16"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x15"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk17"]];
-  r:rule <#lemma30>.
-
-<#lemma15> a r:Extraction; r:gives {<http://127.0.0.1:3300/plants/2> a vocab:Plant};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma16> a r:Extraction; r:gives {@forSome var:e13. <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedActuators var:e13};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma17> a r:Extraction; r:gives {@forSome var:e13. var:e13 a vocab:ActuatorsPlantCollection};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma18> a r:Extraction; r:gives {@forSome var:e13. var:e13 hydra:member <http://127.0.0.1:3300/actuators/2>};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma19> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/2> a vocab:Actuator}; r:evidence (
-  <#lemma27>
-  <#lemma31>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://www.example.org/vocab#IrrigationPump"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://www.example.org/vocab#Actuator"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/2"]];
-  r:rule <#lemma29>.
-
-<#lemma20> a r:Extraction; r:gives {@forSome var:e13. var:e13 hydra:member <http://127.0.0.1:3300/actuators/3>};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma21> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/3> a vocab:Actuator}; r:evidence (
-  <#lemma32>
-  <#lemma33>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://www.example.org/vocab#PowerWindow"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://www.example.org/vocab#Actuator"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/3"]];
-  r:rule <#lemma29>.
-
-<#lemma22> a r:Extraction; r:gives {@forSome var:e13. var:e13 hydra:member <http://127.0.0.1:3300/actuators/4>};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma23> a r:Inference; r:gives {<http://127.0.0.1:3300/actuators/4> a vocab:Actuator}; r:evidence (
-  <#lemma34>
-  <#lemma35>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://www.example.org/vocab#Heater"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://www.example.org/vocab#Actuator"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/actuators/4"]];
-  r:rule <#lemma29>.
-
-<#lemma24> a r:Inference; r:gives {_:sk18 http:methodName "GET".
-  _:sk18 http:requestURI <http://127.0.0.1:3300/plants/2>.
-  _:sk18 http:resp _:sk19.
-  _:sk19 http:body <http://127.0.0.1:3300/plants/2>.
-  <http://127.0.0.1:3300/plants/2> <http://www.schema.org/name> _:sk20.
-  <http://127.0.0.1:3300/plants/2> <http://www.schema.org/description> _:sk21.
-  <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedSensors _:sk22.
-  <http://127.0.0.1:3300/plants/2> vocab:hasAssociatedActuators _:sk23.
-  <http://127.0.0.1:3300/plants/2> vocab:hasIdealTemperature _:sk24.
-  <http://127.0.0.1:3300/plants/2> vocab:hasIdealMoisture _:sk25.
-  <http://127.0.0.1:3300/plants/2> vocab:hasIdealLight _:sk26.
-  _:sk22 a vocab:SensorsPlantCollection.
-  _:sk22 hydra:member _:sk27.
-  _:sk27 a vocab:Sensor.
-  _:sk23 a vocab:ActuatorsPlantCollection.
-  _:sk23 hydra:member _:sk28.
-  _:sk28 a vocab:Actuator.
-  _:sk28 vocab:hasSwitchingState _:sk29.
-  _:sk24 a <http://dbpedia.org/resource/Temperature>.
-  _:sk24 vocab:hasValue _:sk30.
-  _:sk24 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk25 a <http://dbpedia.org/resource/Moisture>.
-  _:sk25 vocab:hasValue _:sk31.
-  _:sk26 a <http://dbpedia.org/resource/Light>.
-  _:sk26 vocab:hasValue _:sk32}; r:evidence (
-  <#lemma15>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants/2"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk18"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk19"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk20"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk21"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk22"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk23"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk24"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk25"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x9"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk26"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x10"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk27"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x11"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk28"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x12"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk29"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x13"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk30"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x14"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk31"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x15"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk32"]];
-  r:rule <#lemma30>.
-
-<#lemma25> a r:Inference; r:gives {_:sk36 http:methodName "GET".
-  _:sk36 http:requestURI <http://127.0.0.1:3300/plants>.
-  _:sk36 http:resp _:sk37.
-  _:sk37 http:body <http://127.0.0.1:3300/plants>.
-  <http://127.0.0.1:3300/plants> hydra:member _:sk38.
-  _:sk38 a vocab:Plant}; r:evidence (
-  <#lemma36>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/plants"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk36"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk37"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk38"]];
-  r:rule <#lemma37>.
-
-<#lemma26> a r:Inference; r:gives {_:sk116 http:methodName "GET".
-  _:sk116 http:requestURI _:sk38.
-  _:sk116 http:resp _:sk117.
-  _:sk117 http:body _:sk38.
-  _:sk38 <http://www.schema.org/name> _:sk118.
-  _:sk38 <http://www.schema.org/description> _:sk119.
-  _:sk38 vocab:hasAssociatedSensors _:sk120.
-  _:sk38 vocab:hasAssociatedActuators _:sk121.
-  _:sk38 vocab:hasIdealTemperature _:sk122.
-  _:sk38 vocab:hasIdealMoisture _:sk123.
-  _:sk38 vocab:hasIdealLight _:sk124.
-  _:sk120 a vocab:SensorsPlantCollection.
-  _:sk120 hydra:member _:sk125.
-  _:sk125 a vocab:Sensor.
-  _:sk121 a vocab:ActuatorsPlantCollection.
-  _:sk121 hydra:member _:sk126.
-  _:sk126 a vocab:Actuator.
-  _:sk126 vocab:hasSwitchingState _:sk127.
-  _:sk122 a <http://dbpedia.org/resource/Temperature>.
-  _:sk122 vocab:hasValue _:sk128.
-  _:sk122 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  _:sk123 a <http://dbpedia.org/resource/Moisture>.
-  _:sk123 vocab:hasValue _:sk129.
-  _:sk124 a <http://dbpedia.org/resource/Light>.
-  _:sk124 vocab:hasValue _:sk130}; r:evidence (
-  <#lemma25>);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk38"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk116"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk117"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk118"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk119"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk120"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk121"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk122"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk123"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x9"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk124"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x10"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk125"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x11"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk126"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x12"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk127"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x13"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk128"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x14"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk129"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x15"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk130"]];
-  r:rule <#lemma30>.
-
-<#lemma27> a r:Extraction; r:gives {vocab:IrrigationPump rdfs:subClassOf vocab:Actuator};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/vocabularies/vocab.n3>].
-
-<#lemma28> a r:Extraction; r:gives {<http://127.0.0.1:3300/actuators/1> a vocab:IrrigationPump};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma29> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2. {var:x0 rdfs:subClassOf var:x1.
-  var:x2 a var:x0} => {var:x2 a var:x1}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/inference/inferenceInheritance.n3>].
-
-<#lemma30> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8, var:x9, var:x10, var:x11, var:x12, var:x13, var:x14, var:x15. {var:x0 a vocab:Plant} => {var:x1 http:methodName "GET".
-  var:x1 http:requestURI var:x0.
-  var:x1 http:resp var:x2.
-  var:x2 http:body var:x0.
-  var:x0 <http://www.schema.org/name> var:x3.
-  var:x0 <http://www.schema.org/description> var:x4.
-  var:x0 vocab:hasAssociatedSensors var:x5.
-  var:x0 vocab:hasAssociatedActuators var:x6.
-  var:x0 vocab:hasIdealTemperature var:x7.
-  var:x0 vocab:hasIdealMoisture var:x8.
-  var:x0 vocab:hasIdealLight var:x9.
-  var:x5 a vocab:SensorsPlantCollection.
-  var:x5 hydra:member var:x10.
-  var:x10 a vocab:Sensor.
-  var:x6 a vocab:ActuatorsPlantCollection.
-  var:x6 hydra:member var:x11.
-  var:x11 a vocab:Actuator.
-  var:x11 vocab:hasSwitchingState var:x12.
-  var:x7 a <http://dbpedia.org/resource/Temperature>.
-  var:x7 vocab:hasValue var:x13.
-  var:x7 iot:unit <https://iotdb.org/pub/iot-unit#temperature.si.celsius>.
-  var:x8 a <http://dbpedia.org/resource/Moisture>.
-  var:x8 vocab:hasValue var:x14.
-  var:x9 a <http://dbpedia.org/resource/Light>.
-  var:x9 vocab:hasValue var:x15}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma31> a r:Extraction; r:gives {<http://127.0.0.1:3300/actuators/2> a vocab:IrrigationPump};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma32> a r:Extraction; r:gives {vocab:PowerWindow rdfs:subClassOf vocab:Actuator};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/vocabularies/vocab.n3>].
-
-<#lemma33> a r:Extraction; r:gives {<http://127.0.0.1:3300/actuators/3> a vocab:PowerWindow};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma34> a r:Extraction; r:gives {vocab:Heater rdfs:subClassOf vocab:Actuator};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/vocabularies/vocab.n3>].
-
-<#lemma35> a r:Extraction; r:gives {<http://127.0.0.1:3300/actuators/4> a vocab:Heater};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma36> a r:Extraction; r:gives {<http://127.0.0.1:3300/plants> a vocab:PlantsCollection};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-<#lemma37> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3. {var:x0 a vocab:PlantsCollection} => {var:x1 http:methodName "GET".
-  var:x1 http:requestURI var:x0.
-  var:x1 http:resp var:x2.
-  var:x2 http:body var:x0.
-  var:x0 hydra:member var:x3.
-  var:x3 a vocab:Plant}};
-  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/boards/board_1.n3>].
-
-#ENDS 0.113 [sec] TC=54 TP=191 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.138 [sec] TC=79 TP=395 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
 
