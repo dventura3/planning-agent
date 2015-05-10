@@ -1,0 +1,86 @@
+@prefix vocab: <http://www.example.org/weatherapi/vocab#>.
+@prefix owl-time: <http://www.w3.org/TR/owl-time>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix http: <http://www.w3.org/2011/http#>.
+
+
+<http://127.0.0.1:3302/weather/forecast/hours> a vocab:HourlyForecastWeatherCollection.
+
+<http://127.0.0.1:3302/weather/forecast/days> a vocab:DailyForecastWeatherCollection.
+
+<http://127.0.0.1:3302/weather/current> a vocab:Weather.
+
+
+{
+  ?wth a vocab:Weather.
+
+  ?location a schema:GeoCoordinates;
+          schema:latitude ?lat;
+          schema:longitude ?lon.
+}
+=>
+{
+  _:request http:methodName "GET";
+      http:requestURI (?wth "?lat=" ?lat "&lon=" ?lon);
+      http:resp [ http:body ?wth ].
+
+  ?wth vocab:relatedLocation ?location;
+      vocab:hasTimestamp ?timestamp.
+}.
+
+
+{
+  ?listWeather a vocab:DailyForecastWeatherCollection.
+
+  ?days a owl-time:DurationDescription;
+        owl-time:days ?numDays.
+
+  ?location a schema:GeoCoordinates;
+          schema:latitude ?lat;
+          schema:longitude ?lon.
+}
+=>
+{
+  _:request http:methodName "GET";
+      http:requestURI (?listWeather "/" ?numDays "?lat=" ?lat "&lon=" ?lon);
+      http:resp [ http:body ?listWeather ].
+
+  ?listWeather hydra:member ?prediction.
+
+  ?prediction a vocab:Prediction;
+              vocab:willHappen ?data;
+              vocab:isRelated ?wth.
+
+  ?wth a vocab:Weather;
+      vocab:relatedLocation ?location.
+}.
+
+
+{
+  ?listWeather a vocab:HourlyForecastWeatherCollection.
+
+  ?hours a owl-time:DurationDescription;
+        owl-time:hours ?numHours.
+
+  ?location a schema:GeoCoordinates;
+          schema:latitude ?lat;
+          schema:longitude ?lon.
+}
+=>
+{
+  _:request http:methodName "GET";
+      http:requestURI (?listWeather "/" ?numHours "?lat=" ?lat "&lon=" ?lon);
+      http:resp [ http:body ?listWeather ].
+  
+
+  ?listWeather hydra:member ?prediction.
+
+  ?prediction a vocab:Prediction;
+              vocab:willHappen ?data;
+              vocab:isRelated ?wth.
+
+  ?wth a vocab:Weather;
+      vocab:relatedLocation ?location.
+}.

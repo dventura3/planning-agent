@@ -1,0 +1,27 @@
+@prefix vocab: <http://www.example.org/weatherapi/vocab#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+
+
+{
+	?wth a vocab:Weather;
+			vocab:relatedLocation ?location.
+}
+=>
+{
+	?wth vocab:hasTimestamp ?data;
+			vocab:hasTemperature ?temp;
+			vocab:hasHumidity ?hum;
+			vocab:hasLightIntensity ?light.
+
+	?temp a dbpedia:Temperature;
+				vocab:hasValue ?valT;
+				iot:unit ?unitT.
+
+	?hum a dbpedia:Humidity;
+				vocab:hasValue ?valH.
+
+	?light a dbpedia:Light;
+				vocab:hasValue ?valL.
+}.

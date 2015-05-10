@@ -35,12 +35,12 @@ app.listen(port, host, function() {
       boards = JSON.parse(data).boards;
 
       for(var i=0; i<boards.length; i++)
-        getDescription(boards[i], ["use_case01", "use_case02"], "board");
+        getDescription(boards[i], ["use_case01", "use_case02", "use_case03", "use_case04"], "board");
 
       web_services = JSON.parse(data).web_services;
 
       for(var i=0; i< web_services.length; i++)
-        getDescription(web_services[i], ["use_case02"], web_services[i].type);
+        getDescription(web_services[i], ["use_case02", "use_case03", "use_case04"], web_services[i].type);
 
       algorithms = new algorithms_module.AlgorithmsManager(__dirname);
 
@@ -118,6 +118,10 @@ var runUseCaseSelected = function(req, res){
     getPlanOnlyBoard(req, res);
   else if(useCaseID_required == 2)
     getPlanBoardAndCurrentWeather(req, res);
+  else if(useCaseID_required == 3)
+    getPlanBoardAndForecastWeatherShortPeriod(req, res);
+  else if(useCaseID_required == 4)
+    getPlanBoardAndForecastWeatherLongPeriod(req, res);
   else
     res.send(getStatusCode(501));
 }
@@ -140,6 +144,30 @@ var getPlanBoardAndCurrentWeather = function(req, res){
   for(var i=0; i<boards.length; i++){
     if(boards[i].ID == boardID_required){
       algorithms.runAlgorithm_BoardAndCurrentWeather(boards[i]);
+      res.send(getStatusCode(200));
+      return 0;
+    }
+  }
+  res.send(getStatusCode(404));
+}
+
+var getPlanBoardAndForecastWeatherShortPeriod = function(req, res){
+ var boardID_required = req.params.boardID;
+  for(var i=0; i<boards.length; i++){
+    if(boards[i].ID == boardID_required){
+      algorithms.runAlgorithm_BoardAndWeatherForecastingShortPeriod(boards[i]);
+      res.send(getStatusCode(200));
+      return 0;
+    }
+  }
+  res.send(getStatusCode(404));
+}
+
+var getPlanBoardAndForecastWeatherLongPeriod = function(req, res){
+  var boardID_required = req.params.boardID;
+  for(var i=0; i<boards.length; i++){
+    if(boards[i].ID == boardID_required){
+      algorithms.runAlgorithm_BoardAndWeatherForecastingLongPeriod(boards[i]);
       res.send(getStatusCode(200));
       return 0;
     }

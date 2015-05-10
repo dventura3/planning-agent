@@ -1,0 +1,35 @@
+@prefix p: <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case03/outputs/out.n3#>.
+@prefix r: <http://www.w3.org/2000/10/swap/reason#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix c: <urn:composition#>.
+
+{
+  ?lemma r:gives [ log:includes { [ http:requestURI [] ] } ].
+}
+=>
+{
+  ?lemma a c:ServiceCall.
+}.
+
+{
+  ?serviceA a c:ServiceCall.
+  ?serviceB a c:ServiceCall.
+  ?serviceA r:evidence ?dependencies.
+  ?serviceB list:in ?dependencies.
+}
+=>
+{
+  ?serviceA c:hasDependency ?serviceB.
+}.
+
+{
+  ?serviceCall a c:ServiceCall;
+               r:gives ?result
+}
+=>
+{
+  ?serviceCall a c:ServiceCall;
+               c:details ?result
+}.
