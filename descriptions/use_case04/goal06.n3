@@ -1,0 +1,22 @@
+@prefix vocab: <http://www.example.org/weatherapi/vocab#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+
+
+#GET current weather for a specific location
+
+{
+  ?listWeather a vocab:DailyForecastWeatherCollection;
+              hydra:member ?prediction.
+
+  ?prediction a vocab:Prediction;
+              vocab:willHappen ?data;
+              vocab:isRelated ?wth.
+
+  ?wth a vocab:Weather;
+      vocab:relatedLocation ?location.
+}
+=>
+{
+  ?listWeather a vocab:DailyForecastWeatherCollection.
+}.
