@@ -1,68 +1,15 @@
 @prefix vocab: <http://www.example.org/vocab#>.
 @prefix http: <http://www.w3.org/2011/http#>.
-@prefix iot: <https://iotdb.org/pub/iot#>.
-@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
-@prefix schema: <http://www.schema.org/>.
-@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
-@prefix dbpedia: <http://dbpedia.org/resource/>.
-@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
 @prefix st: <http://www.mystates.org/states#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
 @prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#>.
-
-
-{
-  ?actuator a vocab:Actuator.
-}
-=>
-{
-  _:request http:methodName "GET";
-            http:requestURI ?actuator;
-            http:resp [http:body ?actuator].
-
-  ?actuator iot:name ?name;
-        iot:description ?desc.
-        #vocab:hasSwitchingState ?value.
-}.
-
-
-{
-  ?plant a vocab:Plant.
-}
-=>
-{
-  _:request http:methodName "GET";
-            http:requestURI ?plant;
-            http:resp [ http:body ?plant ].
-
-  ?plant  schema:name ?name;
-          schema:description ?desc;
-          vocab:hasAssociatedSensors ?sensors;
-          vocab:hasAssociatedActuators ?actuators;
-          vocab:hasIdealTemperature ?idealTemperature;
-          vocab:hasIdealMoisture ?idealMoisture;
-          vocab:hasIdealLight ?idealLight.
-
-  ?sensors  a vocab:SensorsPlantCollection;
-          hydra:member ?oneSensor.
-  ?oneSensor a vocab:Sensor.
-
-  ?actuators a vocab:ActuatorsPlantCollection;
-          hydra:member ?oneActuator.
-  ?oneActuator a vocab:Actuator;
-          vocab:hasSwitchingState ?switchingState.
-
-  ?idealTemperature a dbpedia:Temperature;
-          vocab:hasValue ?valT;
-          iot:unit iot-unit:temperature.si.celsius.
-
-  ?idealMoisture a dbpedia:Moisture;
-          vocab:hasValue ?valM.
-
-  ?idealLight a dbpedia:Light;
-          vocab:hasValue ?valL.
-}.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
 
 
 {
@@ -138,16 +85,17 @@
 
 
 {
-  ?actuatorsList a vocab:ActuatorsCollection.
+  ?actuator a vocab:Actuator.
 }
 =>
 {
   _:request http:methodName "GET";
-            http:requestURI ?actuatorsList;
-            http:resp [ http:body ?actuatorsList ].
+            http:requestURI ?actuator;
+            http:resp [http:body ?actuator].
 
-  ?actuatorsList hydra:member ?oneActuator.
-  ?oneActuator a vocab:Actuator.
+  ?actuator iot:name ?name;
+        iot:description ?desc.
+        #vocab:hasSwitchingState ?value.
 }.
 
 
@@ -169,30 +117,16 @@
 
 
 {
-  ?plantsList a vocab:PlantsCollection.
+  ?actuatorsList a vocab:ActuatorsCollection.
 }
 =>
 {
   _:request http:methodName "GET";
-            http:requestURI ?plantsList;
-            http:resp [ http:body ?plantsList ].
+            http:requestURI ?actuatorsList;
+            http:resp [ http:body ?actuatorsList ].
 
-  ?plantsList hydra:member ?onePlant.  
-  ?onePlant a vocab:Plant.
-}.
-
-
-{
-  ?sensorsList a vocab:SensorsCollection.
-}
-=>
-{
-  _:request http:methodName "GET";
-            http:requestURI ?sensorsList;
-            http:resp [ http:body ?sensorsList ].
-
-  ?sensorsList hydra:member ?oneSensor.
-  ?oneSensor a vocab:Sensor.
+  ?actuatorsList hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator.
 }.
 
 
@@ -245,6 +179,72 @@
 
 
 <http://127.0.0.1:3300/geo> a schema:GeoCoordinates.
+
+
+{
+  ?plant a vocab:Plant.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?plant;
+            http:resp [ http:body ?plant ].
+
+  ?plant  schema:name ?name;
+          schema:description ?desc;
+          vocab:hasAssociatedSensors ?sensors;
+          vocab:hasAssociatedActuators ?actuators;
+          vocab:hasIdealTemperature ?idealTemperature;
+          vocab:hasIdealMoisture ?idealMoisture;
+          vocab:hasIdealLight ?idealLight.
+
+  ?sensors  a vocab:SensorsPlantCollection;
+          hydra:member ?oneSensor.
+  ?oneSensor a vocab:Sensor.
+
+  ?actuators a vocab:ActuatorsPlantCollection;
+          hydra:member ?oneActuator.
+  ?oneActuator a vocab:Actuator;
+          vocab:hasSwitchingState ?switchingState.
+
+  ?idealTemperature a dbpedia:Temperature;
+          vocab:hasValue ?valT;
+          iot:unit iot-unit:temperature.si.celsius.
+
+  ?idealMoisture a dbpedia:Moisture;
+          vocab:hasValue ?valM.
+
+  ?idealLight a dbpedia:Light;
+          vocab:hasValue ?valL.
+}.
+
+
+{
+  ?sensorsList a vocab:SensorsCollection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?sensorsList;
+            http:resp [ http:body ?sensorsList ].
+
+  ?sensorsList hydra:member ?oneSensor.
+  ?oneSensor a vocab:Sensor.
+}.
+
+
+{
+  ?plantsList a vocab:PlantsCollection.
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI ?plantsList;
+            http:resp [ http:body ?plantsList ].
+
+  ?plantsList hydra:member ?onePlant.  
+  ?onePlant a vocab:Plant.
+}.
 
 {
   ?geo a schema:GeoCoordinates.

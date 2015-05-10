@@ -1,0 +1,6 @@
+@prefix schema: <http://www.schema.org/>.
+@prefix owl-time: <http://www.w3.org/TR/owl-time>.
+
+
+_:days a owl-time:DurationDescription;
+       owl-time:days "3".

@@ -1,0 +1,131 @@
+#Processed by Id: euler.yap 7962 2015-04-16 09:59:02Z josd
+#eye --traditional --quick-answere --tactic transaction --query goal04.n3 preference_numDays.n3 boards/board_1.n3 vocabularies/vocab.n3 inference/detailsWeather.n3 inference/inferenceInheritance.n3 inference/inferenceState.n3 inference/obsLight.n3 inference/obsMoisture.n3 inference/obsTemperature.n3 services/weather_1.n3
+
+@prefix vocab: <http://www.example.org/weatherapi/vocab#>.
+@prefix schema: <http://www.schema.org/>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix owl-time: <http://www.w3.org/TR/owl-time>.
+@prefix ns1: <http://www.example.org/vocab#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix st: <http://www.mystates.org/states#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix iot: <https://iotdb.org/pub/iot#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bonsai: <http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#>.
+@prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix iot-unit: <https://iotdb.org/pub/iot-unit#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
+@prefix r: <http://www.w3.org/2000/10/swap/reason#>.
+@prefix var: <http://localhost/var#>.
+@prefix n3: <http://www.w3.org/2004/06/rei#>.
+
+[ a r:Proof, r:Conjunction;
+  r:component <#lemma1>;
+  r:gives {
+    <http://127.0.0.1:3302/weather/forecast/days> a vocab:DailyForecastWeatherCollection.
+  }].
+
+<#lemma1> a r:Inference; r:gives {<http://127.0.0.1:3302/weather/forecast/days> a vocab:DailyForecastWeatherCollection}; r:evidence (
+  <#lemma2>
+  <#lemma3>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3302/weather/forecast/days"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk45"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk46"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk47"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/geo"]];
+  r:rule <#lemma4>.
+
+<#lemma2> a r:Extraction; r:gives {<http://127.0.0.1:3302/weather/forecast/days> a vocab:DailyForecastWeatherCollection};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/services/weather_1.n3>].
+
+<#lemma3> a r:Inference; r:gives {_:sk43 http:methodName "GET".
+  _:sk43 http:requestURI (<http://127.0.0.1:3302/weather/forecast/days> "/" "3" "?lat=" _:sk41 "&lon=" _:sk42).
+  _:sk43 http:resp _:sk44.
+  _:sk44 http:body <http://127.0.0.1:3302/weather/forecast/days>.
+  <http://127.0.0.1:3302/weather/forecast/days> hydra:member _:sk45.
+  _:sk45 a vocab:Prediction.
+  _:sk45 vocab:willHappen _:sk46.
+  _:sk45 vocab:isRelated _:sk47.
+  _:sk47 a vocab:Weather.
+  _:sk47 vocab:relatedLocation <http://127.0.0.1:3300/geo>}; r:evidence (
+  <#lemma2>
+  <#lemma5>
+  <#lemma6>
+  <#lemma7>
+  <#lemma8>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3302/weather/forecast/days"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#days_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo "3"];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/geo"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk41"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk42"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk43"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk44"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk45"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x9"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk46"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x10"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk47"]];
+  r:rule <#lemma9>.
+
+<#lemma4> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4. {var:x0 a vocab:DailyForecastWeatherCollection.
+  var:x0 hydra:member var:x1.
+  var:x1 a vocab:Prediction.
+  var:x1 vocab:willHappen var:x2.
+  var:x1 vocab:isRelated var:x3.
+  var:x3 a vocab:Weather.
+  var:x3 vocab:relatedLocation var:x4} => {var:x0 a vocab:DailyForecastWeatherCollection}};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/goal04.n3>].
+
+<#lemma5> a r:Extraction; r:gives {@forSome var:days_1. var:days_1 a <http://www.w3.org/TR/owl-timeDurationDescription>};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/preference_numDays.n3>].
+
+<#lemma6> a r:Extraction; r:gives {@forSome var:days_1. var:days_1 <http://www.w3.org/TR/owl-timedays> "3"};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/preference_numDays.n3>].
+
+<#lemma7> a r:Extraction; r:gives {<http://127.0.0.1:3300/geo> a <http://www.schema.org/GeoCoordinates>};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/boards/board_1.n3>].
+
+<#lemma8> a r:Inference; r:gives {_:sk39 http:methodName "GET".
+  _:sk39 http:requestURI <http://127.0.0.1:3300/geo>.
+  _:sk39 http:resp _:sk40.
+  _:sk40 http:body <http://127.0.0.1:3300/geo>.
+  <http://127.0.0.1:3300/geo> <http://www.schema.org/latitude> _:sk41.
+  <http://127.0.0.1:3300/geo> <http://www.schema.org/longitude> _:sk42}; r:evidence (
+  <#lemma7>);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://127.0.0.1:3300/geo"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk39"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk40"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk41"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk42"]];
+  r:rule <#lemma10>.
+
+<#lemma9> a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5. @forSome var:x6, var:x7, var:x8, var:x9, var:x10. {var:x0 a vocab:DailyForecastWeatherCollection.
+  var:x1 a <http://www.w3.org/TR/owl-timeDurationDescription>.
+  var:x1 <http://www.w3.org/TR/owl-timedays> var:x2.
+  var:x3 a <http://www.schema.org/GeoCoordinates>.
+  var:x3 <http://www.schema.org/latitude> var:x4.
+  var:x3 <http://www.schema.org/longitude> var:x5} => {var:x6 http:methodName "GET".
+  var:x6 http:requestURI (var:x0 "/" var:x2 "?lat=" var:x4 "&lon=" var:x5).
+  var:x6 http:resp var:x7.
+  var:x7 http:body var:x0.
+  var:x0 hydra:member var:x8.
+  var:x8 a vocab:Prediction.
+  var:x8 vocab:willHappen var:x9.
+  var:x8 vocab:isRelated var:x10.
+  var:x10 a vocab:Weather.
+  var:x10 vocab:relatedLocation var:x3}};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/services/weather_1.n3>].
+
+<#lemma10> a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4. {var:x0 a <http://www.schema.org/GeoCoordinates>} => {var:x1 http:methodName "GET".
+  var:x1 http:requestURI var:x0.
+  var:x1 http:resp var:x2.
+  var:x2 http:body var:x0.
+  var:x0 <http://www.schema.org/latitude> var:x3.
+  var:x0 <http://www.schema.org/longitude> var:x4}};
+  r:because [ a r:Parsing; r:source <file:///Users/Daniela/Documents/Documenti_Dottorato/trasferte/Belgio_2015/work/implementation/plants-planning-agent/descriptions/use_case04/boards/board_1.n3>].
+
+#ENDS 0.206 [sec] TC=51 TP=178 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+
