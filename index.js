@@ -29,6 +29,20 @@ app.use(bodyParser.json());
 app.listen(port, host, function() {
   //configuration
   try {
+    var use_cases_path = ["use_case01", "use_case02", "use_case03", "use_case04"];
+    //save path files
+    use_cases_path.forEach(function (use_case) {
+      var content = "@prefix p: <file://" + __dirname + "/descriptions/" + use_case + "/outputs/out.n3#>.";
+      var file_name = __dirname + "/descriptions/" + use_case + "/parser/path.n3";
+      fs.writeFile(file_name, content, function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("The Path is saved!");
+        }
+      });
+    });
+    //save RESTdesc descriptions
     fs.readFile('lib/fakeBoards.json', function(err, data){
       if (err) throw err;
       

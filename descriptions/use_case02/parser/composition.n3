@@ -1,4 +1,3 @@
-@prefix p: <proof.n3#>.
 @prefix c: <urn:composition#>.
 
 { ?serviceCall a c:ServiceCall }
