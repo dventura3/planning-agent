@@ -38,7 +38,7 @@ app.listen(port, host, function() {
         if(err) {
           console.log(err);
         } else {
-          console.log("The Path is saved!");
+          //console.log("The Path is saved!");
         }
       });
     });
@@ -57,6 +57,8 @@ app.listen(port, host, function() {
         getDescription(web_services[i], ["use_case02", "use_case03", "use_case04"], web_services[i].type);
 
       algorithms = new algorithms_module.AlgorithmsManager(__dirname);
+      algorithms.setBoard(boards[0]);
+      algorithms.start();
 
       console.log("Server configured");
       console.log("Server listening to %s:%d", host, port);
@@ -88,7 +90,7 @@ var getDescription = function(service, paths, type){
             if(err) {
               console.log(err);
             } else {
-              console.log("The RESTdesc description was saved!");
+              //console.log("The RESTdesc description was saved!");
             }
           });
         });
@@ -128,60 +130,10 @@ var getEntryPoint = function(req, res) {
 var runUseCaseSelected = function(req, res){
   var boardID_required = req.params.boardID;
   var useCaseID_required = req.params.useCaseID;
-  if(useCaseID_required == 1)
-    getPlanOnlyBoard(req, res);
-  else if(useCaseID_required == 2)
-    getPlanBoardAndCurrentWeather(req, res);
-  else if(useCaseID_required == 3)
-    getPlanBoardAndForecastWeatherShortPeriod(req, res);
-  else if(useCaseID_required == 4)
-    getPlanBoardAndForecastWeatherLongPeriod(req, res);
-  else
-    res.send(getStatusCode(501));
-}
-
-
-var getPlanOnlyBoard = function(req, res){
-  var boardID_required = req.params.boardID;
   for(var i=0; i<boards.length; i++){
     if(boards[i].ID == boardID_required){
-      algorithms.runAlgorithm_OnlyBoard(boards[i]);
-      res.send(getStatusCode(200));
-      return 0;
-    }
-  }
-  res.send(getStatusCode(404));
-}
-
-var getPlanBoardAndCurrentWeather = function(req, res){
-  var boardID_required = req.params.boardID;
-  for(var i=0; i<boards.length; i++){
-    if(boards[i].ID == boardID_required){
-      algorithms.runAlgorithm_BoardAndCurrentWeather(boards[i]);
-      res.send(getStatusCode(200));
-      return 0;
-    }
-  }
-  res.send(getStatusCode(404));
-}
-
-var getPlanBoardAndForecastWeatherShortPeriod = function(req, res){
- var boardID_required = req.params.boardID;
-  for(var i=0; i<boards.length; i++){
-    if(boards[i].ID == boardID_required){
-      algorithms.runAlgorithm_BoardAndWeatherForecastingShortPeriod(boards[i]);
-      res.send(getStatusCode(200));
-      return 0;
-    }
-  }
-  res.send(getStatusCode(404));
-}
-
-var getPlanBoardAndForecastWeatherLongPeriod = function(req, res){
-  var boardID_required = req.params.boardID;
-  for(var i=0; i<boards.length; i++){
-    if(boards[i].ID == boardID_required){
-      algorithms.runAlgorithm_BoardAndWeatherForecastingLongPeriod(boards[i]);
+      algorithms.setBoard(boards[i]);
+      algorithms.setIdUseCase(parseInt(useCaseID_required));
       res.send(getStatusCode(200));
       return 0;
     }
@@ -192,6 +144,5 @@ var getPlanBoardAndForecastWeatherLongPeriod = function(req, res){
 
 
 app.get("/", getEntryPoint);
-//app.get("/planOnlyBoard/:boardID", getPlanOnlyBoard);
 
 app.get("/run/:useCaseID/:boardID", runUseCaseSelected);
