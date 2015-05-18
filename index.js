@@ -145,4 +145,4 @@ var runUseCaseSelected = function(req, res){
 
 app.get("/", getEntryPoint);
 
-app.get("/run/:useCaseID/:boardID", runUseCaseSelected);
+app.put("/run/:useCaseID/:boardID", runUseCaseSelected);

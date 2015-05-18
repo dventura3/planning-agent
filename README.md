@@ -53,10 +53,12 @@ It is the same of algorithm 3 except for the fact that it is used the orecast we
 After having cloned the repository, you have to install the Node.js modules with `npm install`.
 Now you can run the server through `node index.js`. The default host is `127.0.0.1` and the default port is `3301`. You can change this configuration, setting the two environment variables `HOST` and `PORT`.
 
-During the init phase, the servers got all the newest RESTdesc descriptions by inoking the HTTP OPTIONS on the entry point of all the APIs for the web services that it knows and store it in the `/descriptions/use_caseN` directories.
+During the init phase, the servers get all the newest RESTdesc descriptions by inoking the HTTP OPTIONS on the entry point of all the APIs for the web services that it knows and store it in the `/descriptions/use_caseN` directories.
 
-The server exposes only one GET service with the following URL `/run/:useCaseID/:boardID`.
-This service is used to set the algorithm to execute (useCaseID can be from 1 to 4) and the boardID (you can choose one of the board ID in the fakeBoard file).
+The server exposes only one PUT service with the following URL `/run/:useCaseID/:boardID`.
+This service is used to set the algorithm to execute (useCaseID can be from 1 to 4) and the boardID (you can choose one of the boardID in the fakeBoard file).
 
+For example launch the command:
 
+`curl -X PUT 'http://127.0.0.1:3301/run/3/1'`
 
