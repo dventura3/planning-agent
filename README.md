@@ -37,7 +37,7 @@ It is the same of algorithm 3 except for the fact that it is used the orecast we
 
 ## Directories
 
-* /descriptions contains all the RESTdesc descriptions separated for use cases.
+* /descriptions contains all the RESTdesc descriptions separated for use case.
 * /lib contains the nodejs modules.
 	+ AlgorithmsManager is the module that implements the four algorithms.
 	+ Reasoner is the module that executes EYE for a specific goal and stores the result in `/descriptions/<usecase>/outputs/parser.n3` file.
@@ -58,7 +58,7 @@ During the init phase, the servers get all the newest RESTdesc descriptions by i
 The server exposes only one PUT service with the following URL `/run/:useCaseID/:boardID`.
 This service is used to set the algorithm to execute (useCaseID can be from 1 to 4) and the boardID (you can choose one of the boardID in the fakeBoard file).
 
-For example launch the command:
+For example launch the folloqing command to execute the algorithm 3:
 
 `curl -X PUT 'http://127.0.0.1:3301/run/3/1'`
 
