@@ -32,7 +32,7 @@ Using the forecast weather condition is a good practice to decide when switching
 
 ### Algorithm 4
 
-It is the same of algorithm 3 except for the fact that it is used the orecast weather conditions for the next three days.
+It is the same of algorithm 3 except for the fact that it is used the forecast weather conditions for the next three days.
 
 
 ## Directories
@@ -58,7 +58,7 @@ During the init phase, the servers get all the newest RESTdesc descriptions by i
 The server exposes only one PUT service with the following URL `/run/:useCaseID/:boardID`.
 This service is used to set the algorithm to execute (useCaseID can be from 1 to 4) and the boardID (you can choose one of the boardID in the fakeBoard file).
 
-For example launch the folloqing command to execute the algorithm 3:
+For example launch the following command to execute the algorithm 3:
 
 `curl -X PUT 'http://127.0.0.1:3301/run/3/1'`
 
